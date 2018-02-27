@@ -17,7 +17,10 @@ import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { WarehouseListComponent } from './components/warehouse-list/warehouse-list.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent }
+  { path: '', component: AuthComponent },
+  { path: 'homepage', component: HomepageComponent },
+  { path: 'warehouses', component: WarehousesComponent },
+  { path: '**', redirectTo: ''}
 ]
 
 @NgModule({

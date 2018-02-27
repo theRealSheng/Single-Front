@@ -14,11 +14,11 @@ export class SignupComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
+  username: String
+  password: String
   // ... model (e,g. username: String)
 
   constructor(private authService: AuthService, private router: Router) { }
-  username: string;
-  password: string;
 
   ngOnInit() {
   }

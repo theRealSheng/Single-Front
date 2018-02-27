@@ -2,5 +2,12 @@
   warehouse-list works!
 </p>
 
+<div *ngIf="!warehouses">loading ...</div>
 
-{{ warehouse }}
+<div>
+  <ul *ngIf="warehouses">
+    <li *ngFor="let warehouse of warehouses">
+      <p>{{ warehouse.WarehouseAddress }}</p> 
+    </li>
+  </ul>
+</div>
