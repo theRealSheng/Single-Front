@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WarehouseCardService } from '../../services/warehouse-card.service';
 
 @Component({
   selector: 'app-warehouses',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WarehousesComponent implements OnInit {
 
-  constructor() { }
+  warehouses: Array<{}>;
+
+  constructor(private warehouseCardService: WarehouseCardService) { }
 
   ngOnInit() {
+    this.warehouseCardService.getList()
+      .then(warehouses => this.warehouses = warehouses)
   }
-
 }

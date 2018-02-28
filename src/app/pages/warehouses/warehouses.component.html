@@ -2,4 +2,6 @@
   warehouses works!
 </p>
 
-<app-warehouse-list></app-warehouse-list>
+<div *ngIf="warehouses">
+  <app-warehouse-list [warehouses]="warehouses"></app-warehouse-list>
+</div>
