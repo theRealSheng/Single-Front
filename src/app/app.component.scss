@@ -1,8 +1,14 @@
-p {
-  color: green;
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: grey;
 }
 
+.logo {
+  float: left;
+}
 
-h1 {
-  color: blue;
+.nav-bar {
+  float: right;
 }

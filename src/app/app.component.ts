@@ -28,11 +28,11 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth']);
   }
 
   signup() {
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/auth']);
   }
 
   profile() {
@@ -41,6 +41,6 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout()
-      .then(() => this.router.navigate(['/login']));
+      .then(() => this.router.navigate(['/auth']));
   }
 }

@@ -1,9 +1,6 @@
-<p>
-  signup works!
-</p>
 
 
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && signUpUsernameField.errors}">
     <label>User Name:</label>
@@ -37,5 +34,4 @@
     </div>
   </div>
 
-  xxx{{error}}xxx
 </form>

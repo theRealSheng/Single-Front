@@ -2,6 +2,12 @@
 
 /* -- forms -- */
 
+.signup {
+	border: 1px solid black;
+	float: left;
+	margin: 50px;
+}
+
 form.is-processing {
 	opacity: 0.5;
 }

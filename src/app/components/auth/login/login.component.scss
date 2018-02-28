@@ -2,6 +2,12 @@
 
 /* -- forms -- */
 
+.login {
+	border: 1px solid black;
+	margin: 50px;
+	float: left;
+}
+
 form.is-processing {
 	opacity: 0.5;
 }

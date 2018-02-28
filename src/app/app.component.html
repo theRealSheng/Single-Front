@@ -1,27 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to Simple Linear!
-  </h1>
 
-  <p>
-    Welcome
-  </p>
-</div>
+<nav>
+  <div style="text-align:center" class="logo">
+    <h1>
+      Welcome to Simple Linear!
+    </h1>
+  </div>
+  
+  <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="nav-bar">
+    <div *ngIf="loading">
+      <span class="username text">loading...</span>
+    </div>
+    <div *ngIf="!loading && !!user">
+      <a (click)="profile()">{{user.username}}</a>
+      <a (click)="logout()">logout</a>
+    </div>
+    <div *ngIf="!loading && anon">
+      <a (click)="login()">login</a>
+      <a (click)="signup()">signup</a>
+    </div>
+  </div>
+</nav>
 
-<div [ngClass]="{'is-user': user, 'is-anon': anon}">
-  <div *ngIf="loading">
-    <span class="username text">loading...</span>
-  </div>
-  <div *ngIf="!loading && !!user">
-    <a (click)="profile()">{{user.username}}</a>
-    <a (click)="logout()">logout</a>
-  </div>
-  <div *ngIf="!loading && anon">
-    <a (click)="login()">login</a>
-    <a (click)="signup()">signup</a>
-  </div>
-</div>
 
 <router-outlet></router-outlet>
 

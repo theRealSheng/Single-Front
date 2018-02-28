@@ -1,9 +1,6 @@
-<p>
-  login works!
-</p>
 
 
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="login">
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
     <label>User Name:</label>
