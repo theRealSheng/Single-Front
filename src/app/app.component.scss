@@ -6,10 +6,14 @@ nav {
   display: grid;
 }
 
+.main-nav {
+  grid-template-columns: 80% 20%;
+}
+
 .logo {
-  float: left;
+
 }
 
 .nav-bar {
-  float: right;
+
 }
