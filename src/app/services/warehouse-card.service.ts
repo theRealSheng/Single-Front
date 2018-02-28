@@ -18,4 +18,6 @@ export class WarehouseCardService {
     return this.httpClient.get(`${this.API_URL}/warehouses`, options)
       .toPromise();
   }
+
+
 }

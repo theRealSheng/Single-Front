@@ -11,6 +11,7 @@
       <p>Warehouse Address: {{ warehouse.WarehouseAddress }}</p> 
       <p>Pricing: {{ warehouse.Pricing }}</p> 
       <p>Special Notes: {{ warehouse.SpecialNotes }}</p> 
+      <a [routerLink]="['/warehouses', warehouse._id]"> Select</a>
     </li>
   </ul>
 </div>

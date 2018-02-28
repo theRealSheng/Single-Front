@@ -19,12 +19,16 @@ import { AuthComponent } from './pages/auth/auth.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { WarehouseListComponent } from './components/warehouse-list/warehouse-list.component';
+import { SingleWarehousePageComponent } from './pages/single-warehouse-page/single-warehouse-page.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 const routes: Routes = [
   { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -37,7 +41,9 @@ const routes: Routes = [
     AuthComponent,
     HomepageComponent,
     WarehousesComponent,
-    WarehouseListComponent
+    WarehouseListComponent,
+    SingleWarehousePageComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

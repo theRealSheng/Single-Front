@@ -15,7 +15,6 @@ export class WarehouseListComponent implements OnInit {
   ngOnInit() {
     this.warehouseCardService.getList()
       .then(warehouses => this.warehouses = warehouses)
-      // .catch(err => this.err)
   }
 
 }
