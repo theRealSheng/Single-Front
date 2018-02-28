@@ -8,9 +8,8 @@
   <ul *ngIf="warehouses">
     <li *ngFor="let warehouse of warehouses">
       <p>Warehouse Name: {{ warehouse.companyName }}</p> 
-      <p>Warehouse Address: {{ warehouse.WarehouseAddress }}</p> 
-      <p>Pricing: {{ warehouse.Pricing }}</p> 
-      <p>Special Notes: {{ warehouse.SpecialNotes }}</p> 
+      <p>Warehouse Address: {{ warehouse.warehouseAddress }}</p> 
+      <p>Pricing: {{ warehouse.pricing }}</p> 
       <a [routerLink]="['/warehouses', warehouse._id]"> Select</a>
     </li>
   </ul>
