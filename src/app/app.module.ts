@@ -20,17 +20,11 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { WarehouseListComponent } from './components/warehouse-list/warehouse-list.component';
 
-// const routes: Routes = [
-//   { path: '', component: HomepageComponent },
-//   { path: 'auth', component: AuthComponent },
-//   { path: 'warehouses', component: WarehousesComponent },
-//   { path: '**', redirectTo: ''}
-// ]
 
 const routes: Routes = [
-  { path: 'warehouses',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
+  { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
-  { path: 'page',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: '**', redirectTo: '' }
 ];
 
