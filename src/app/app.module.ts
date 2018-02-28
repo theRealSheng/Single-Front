@@ -21,7 +21,7 @@ import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { WarehouseListComponent } from './components/warehouse-list/warehouse-list.component';
 import { SingleWarehousePageComponent } from './pages/single-warehouse-page/single-warehouse-page.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { ProfileFormEditComponent } from './components/profile-form-edit/profile-form-edit.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
 import { ProfileService } from './services/profile.service';
 
@@ -47,7 +47,7 @@ const routes: Routes = [
     WarehouseListComponent,
     SingleWarehousePageComponent,
     ProfileComponent,
-    ProfilePageComponent,
+    ProfileFormEditComponent,
     WarehouseDetailComponent
   ],
   imports: [

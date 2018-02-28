@@ -1,11 +1,8 @@
 
-
-
-
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyNameField.errors}">
     <label>Company Name: </label>
-    <input type="text" name="companyName" [(ngModel)]="companyName" #companyNameField="ngModel" required [disabled]="processing"/>
+    <input type="text" name="companyName" [(ngModel)]="user.companyName" #companyNameField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && companyNameField.errors">
       <p *ngIf="companyNameField.errors.required" class="validation">Company name required</p>
     </div>
@@ -13,7 +10,7 @@
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyAddressField.errors}">
     <label>Company Address: </label>
-    <input type="text" name="companyAddress" [(ngModel)]="companyAddress" #companyAddressField="ngModel" required [disabled]="processing"/>
+    <input type="text" name="companyAddress" [(ngModel)]="user.companyAddress" #companyAddressField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && companyAddressField.errors">
       <p *ngIf="companyAddressField.errors.required" class="validation">Company address required</p>
     </div>
@@ -21,7 +18,7 @@
  
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
     <label>Email: </label>
-    <input type="email" name="email" [(ngModel)]="email" #emailField="ngModel" required [disabled]="processing"/>
+    <input type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
     <div *ngIf="feedbackEnabled && emailField.errors">
       <p *ngIf="emailField.errors.required" class="validation">Company address required</p>
     </div>
@@ -29,7 +26,7 @@
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
     <label>Description: </label>
-    <input type="description" name="description" [(ngModel)]="description" #descriptionField="ngModel" [disabled]="processing"
+    <input type="description" name="description" [(ngModel)]="user.description" #descriptionField="ngModel" [disabled]="processing"
     placeholder="Please put general information of your company. For each warehouse post you put, you can put extra information for that individual warehouse"/>
     <div *ngIf="feedbackEnabled && descriptionField.errors">
     </div>
