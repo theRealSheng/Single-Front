@@ -2,4 +2,6 @@
   single-warehouse-page works!
 </p>
 
-<app-warehouse-detail></app-warehouse-detail>
+<div *ngIf="warehouseArr" >
+<app-warehouse-detail [warehouse]="warehouseArr"></app-warehouse-detail>
+</div>
