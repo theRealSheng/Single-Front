@@ -14,8 +14,9 @@ export class SignupComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username: String
-  password: String
+  username: String;
+  password: String;
+  role: String;
   // ... model (e,g. username: String)
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -30,7 +31,8 @@ export class SignupComponent implements OnInit {
       this.processing = true;
       const data = {
         username: this.username,
-        password: this.password
+        password: this.password,
+        role: this.role
       }
       this.authService.signup(data)
         .then((result) => {
