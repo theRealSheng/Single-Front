@@ -8,13 +8,14 @@ import { WarehouseCardService } from '../../services/warehouse-card.service';
 })
 export class WarehouseListComponent implements OnInit {
 
-  warehouses: Array<any>;
+  warehouses: Array<{}>;
 
   constructor(private warehouseCardService: WarehouseCardService) { }
 
   ngOnInit() {
     this.warehouseCardService.getList()
-    .then(warehouses =>{ return this.warehouses = warehouses});
+      .then(warehouses => this.warehouses = warehouses)
+      // .catch(err => this.err)
   }
 
 }
