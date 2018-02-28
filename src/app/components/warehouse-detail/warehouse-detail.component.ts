@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { WarehouseCardService } from '../../services/warehouse-card.service';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-warehouse-detail',
@@ -9,18 +7,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WarehouseDetailComponent implements OnInit {
 
-  warehouse: Array<{}>;
-  warehouseId: any;
+  @Input() warehouse: any;
 
-  constructor(private warehouseCardService: WarehouseCardService, private activatedRoute: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this.activatedRoute.params
-    .subscribe( params => this.warehouseId = params['id']);
-    
-    this.warehouseCardService.getSingleWarehouse(this.warehouseId)
-      .then(warehouse => this.warehouse = warehouse)
   }
 
 }
