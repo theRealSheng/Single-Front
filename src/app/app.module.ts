@@ -24,6 +24,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileFormEditComponent } from './components/profile-form-edit/profile-form-edit.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
 import { ProfileService } from './services/profile.service';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'dashboard/:id', component: DashboardComponent, canActivate: [RequireUserGuardService] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -48,7 +50,8 @@ const routes: Routes = [
     SingleWarehousePageComponent,
     ProfileComponent,
     ProfileFormEditComponent,
-    WarehouseDetailComponent
+    WarehouseDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
