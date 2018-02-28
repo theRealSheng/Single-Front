@@ -25,7 +25,7 @@ import { ProfileFormEditComponent } from './components/profile-form-edit/profile
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
 import { ProfileService } from './services/profile.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-
+import { BookingComponent } from './pages/booking/booking.component';
 
 const routes: Routes = [
   { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
@@ -34,9 +34,9 @@ const routes: Routes = [
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [RequireUserGuardService] },
+  { path: 'warehouses/warehouse._id/booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
   { path: '**', redirectTo: '' }
 ];
-
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ const routes: Routes = [
     ProfileComponent,
     ProfileFormEditComponent,
     WarehouseDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

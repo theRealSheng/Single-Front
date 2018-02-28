@@ -24,8 +24,9 @@
   </div>
 
   <div *ngIf="!loading && !!user" class="sub-nav">
-    <a href="/warehouses">Warehouses</a>
-    <a [routerLink]="['/profile', user._id]"> Profile </a>
+    <a [routerLink]="['/warehouses']">Warehouses</a>
+    <a [routerLink]="['/dashboard', user._id]">Dashboard</a>
+    <a [routerLink]="['/profile', user._id]"> To Do & Profile </a>
   </div>
 
 </nav>

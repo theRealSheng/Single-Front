@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { WarehouseCardService } from '../../services/warehouse-card.service';
 import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
   selector: 'app-single-warehouse-page',
@@ -19,7 +17,7 @@ export class SingleWarehousePageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
     .subscribe( params => this.warehouseId = params['id']);
-    
+  
     this.warehouseCardService.getSingleWarehouse(this.warehouseId)
       .then(warehouse => this.warehouseArr = warehouse)
   }
