@@ -4,17 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
+// Services
 
 import { AuthService } from './services/auth.service';
 import { WarehouseCardService } from './services/warehouse-card.service';
+import { ProfileService } from './services/profile.service';
+import { BookingService } from './services/booking.service';
+
+// Guards
 
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
+// Components
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { WarehousesComponent } from './pages/warehouses/warehouses.component';
@@ -23,9 +30,10 @@ import { SingleWarehousePageComponent } from './pages/single-warehouse-page/sing
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileFormEditComponent } from './components/profile-form-edit/profile-form-edit.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
-import { ProfileService } from './services/profile.service';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { BookingFormComponent } from './components/booking-form/booking-form.component';
+
 
 const routes: Routes = [
   { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
@@ -34,7 +42,7 @@ const routes: Routes = [
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [RequireUserGuardService] },
-  { path: 'warehouses/warehouse._id/booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
+  { path: 'booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -52,7 +60,8 @@ const routes: Routes = [
     ProfileFormEditComponent,
     WarehouseDetailComponent,
     DashboardComponent,
-    BookingComponent
+    BookingComponent,
+    BookingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,8 @@ const routes: Routes = [
     RequireAnonGuardService,
     RequireUserGuardService,
     WarehouseCardService,
-    ProfileService
+    ProfileService,
+    BookingService
    ],
   bootstrap: [AppComponent]
 })

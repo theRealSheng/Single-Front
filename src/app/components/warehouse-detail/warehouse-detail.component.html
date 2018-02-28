@@ -6,4 +6,8 @@
   <p> {{ warehouse.companyName }} </p>
 </div>
 
-<a [routerLink]="['/warehouses/warehouse._id/booking']">Contact</a>
+<a [routerLink]="['/booking']">Contact</a>
+
+<div *ngIf="warehouse">
+ <app-booking-form [warehouse]="warehouse"></app-booking-form>
+</div>

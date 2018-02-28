@@ -1,0 +1,73 @@
+<p>
+  booking-form works!
+</p>
+
+<div *ngIf="warehouse">
+  <p>Warehouse Name: {{ warehouse.companyName }}</p>
+  <p>Warehouse Address: {{ warehouse.companyAddress }}</p>
+</div>
+
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && productNameField.errors}">
+    <label>Product: </label>
+    <input type="text" name="productName" [(ngModel)]="productName" #productNameField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && productNameField.errors">
+      <p *ngIf="productNameField.errors.required" class="validation">Product name required</p>
+    </div>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && dimsWeightField.errors}">
+    <label>Dims and weight: </label>
+    <input type="text" name="dimsWeight" [(ngModel)]="dimsWeight" #dimsWeightField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && dimsWeightField.errors">
+      <p *ngIf="dimsWeightField.errors.required" class="validation">Dims and weight required</p>
+    </div>
+  </div>
+  
+  <div class="packCargo" [ngClass]="{'has-error': feedbackEnabled && packCargoField.errors}">
+    <label>Package cargo: </label>
+    <select name="packCargo" [(ngModel)]="packCargo" #signUpRole="ngModel" required>
+      <option></option>
+      <option>Pallets</option>
+      <option>Cartons</option>
+      <option>Mix</option>
+    </select>
+    <div *ngIf="feedbackEnabled && packCargo.errors">
+      <p *ngIf="packCargo.errors.required" class="validation">Package cargo required</p>
+    </div>
+  </div>
+
+  <div>
+    <input type="checkbox" id="hazmat" name="hazmat" value="hazmat" [(ngModel)]="hazmat">
+    <label for="hazmat">Is hazmat?</label>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && expectedVolWeightShip.errors}">
+    <label>Expected volume and weight per month: </label>
+    <input type="text" name="expectedVolWeightShip" [(ngModel)]="expectedVolWeightShip" #expectedVolWeightShipField="ngModel" required [disabled]="processing"/>
+    <div *ngIf="feedbackEnabled && expectedVolWeightShipField.errors">
+      <p *ngIf="expectedVolWeightShipField.errors.required" class="validation">Company address required</p>
+    </div>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && expectedVolWeightMonthField.errors}">
+    <label>Expected volume and weight per month: </label>
+    <input type="text" name="expectedVolWeightMonth" [(ngModel)]="expectedVolWeightMonth" #expectedVolWeightMonthField="ngModel" [disabled]="processing"
+    placeholder="Please put general information of your company. For each warehouse post you put, you can put extra information for that individual warehouse"/>
+    <div *ngIf="feedbackEnabled && expectedVolWeightMonthField.errors">
+    </div>
+  </div>
+
+  <div class="field" [ngClass]="{'has-error': feedbackEnabled && expTurnOverField.errors}">
+    <label>Expected turnover: </label>
+    <input type="text" name="expTurnOver" [(ngModel)]="expTurnOver" #expTurnOverField="ngModel" [disabled]="processing"
+    placeholder="Please put general information of your company. For each warehouse post you put, you can put extra information for that individual warehouse"/>
+    <div *ngIf="feedbackEnabled && expTurnOverField.errors">
+    </div>
+  </div>
+
+  <div class="field submit">
+    <button type="submit" [disabled]="processing">Submit changes</button>
+  </div>
+</form>
+  
