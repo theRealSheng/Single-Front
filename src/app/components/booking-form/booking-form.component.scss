@@ -1,0 +1,42 @@
+.form-container {
+  margin: 10%;
+  background-color: white;
+  padding: 2%;
+}
+
+.prefilled, .field {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+label {
+  grid-column-start: 1;
+  padding: 10px;
+}
+
+span {
+  border-bottom: 1px solid black;
+}
+
+span, input, select {
+  grid-column-start: 2;
+}
+
+select {
+  background-color: white;
+  border: none;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+button {
+  display: block;
+  margin: 4% auto 1% auto;
+  font-size: 16px;
+  padding: 1% 5%;
+  background-color: green;
+  color: white;
+}

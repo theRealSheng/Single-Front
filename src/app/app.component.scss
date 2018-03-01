@@ -2,20 +2,21 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: grey;
-  display: grid;
+  background-color: white;
+  padding: 20px;
 }
 
 .main-nav {
+  display: grid;
   grid-template-columns: 80% 20%;
 }
 
-.logo {
-
-}
-
 .nav-bar {
-
+  align-self: center;
 }
 
+
+h1 {
+  text-align: left;
+}
 
