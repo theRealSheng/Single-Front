@@ -3,6 +3,7 @@ import { BookingService } from '../../services/booking.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { WarehouseCardService } from '../../services/warehouse-card.service';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-booking',
@@ -11,6 +12,7 @@ import { WarehouseCardService } from '../../services/warehouse-card.service';
 })
 export class BookingComponent implements OnInit {
 
+  user: any;
   userObj: any;
   feedbackEnabled = false;
   error = '';
@@ -22,7 +24,8 @@ export class BookingComponent implements OnInit {
     private bookingService: BookingService,
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
-    private warehouseCardService: WarehouseCardService ) { }
+    private warehouseCardService: WarehouseCardService,
+    private profileService: ProfileService) { }
 
   ngOnInit() {
     this.activatedRoute.params
@@ -32,7 +35,10 @@ export class BookingComponent implements OnInit {
           .then(warehouse => this.warehouse = warehouse)
         })
 
-    this.userObj = this.authService.getUser();
+    this.user = this.authService.getUser();
+
+    this.profileService.getUser(this.user._id)
+      .then(user => this.userObj = user);
   }
 
 

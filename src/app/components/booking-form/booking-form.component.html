@@ -2,15 +2,25 @@
   booking-form works!
 </p>
 
-<div class="form-container">
+<p>To:</p> 
+
   <div *ngIf="warehouse" class="prefilled">
     <label>Warehouse Name:</label> 
-    <span>{{ warehouse.companyName }}</span>
+    <span>{{warehouse.companyName }}</span>
     <label>Warehouse Address:</label> 
-    <span>{{ warehouse.companyAddress }}</span>
+    <span>{{ warehouse.warehouseAddress }}</span>
   </div>
-  
-  
+
+<p>From: </p>
+
+<div *ngIf="user" class="prefilled">
+  <label> Your Company:</label>
+  <span>{{user.companyName }}</span>
+  <label> Your Address:</label>
+  <span>{{ user.companyAddress }}</span>
+</div>
+
+<div class="form-container">
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && productNameField.errors}">
       <label>Product: </label>
