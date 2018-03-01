@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { ProfileService } from '../../services/profile.service';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-profile-form-edit',
@@ -9,34 +7,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileFormEditComponent implements OnInit {
 
+  @Output() submitProfile = new EventEmitter<string>();
   @Input() user: any;
 
-  feedbackEnabled = false;
-  error = null;
-  processing = false;
+  @Input() feedbackEnabled = false;
+  @Input() error = null;
+  @Input() processing = false;
 
-  constructor(private profileService: ProfileService, private activatedRoute: ActivatedRoute ) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
 
   submitForm(form) {
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-
-      this.profileService.changeProfile(this.user)
-        .then(() => {
-          console.log("Profile changed")
-        })
-        .catch((err) => {
-          this.error = err.error.error; 
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
-
-    };
+      this.submitProfile.emit(this.user);
+    }
   }
 }

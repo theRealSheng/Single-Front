@@ -13,11 +13,11 @@ export class BookingService {
   ngOnInit() {
   }
 
-  getBookingList(): Promise<any> {
+  getBookingListSeller(id): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/booking`, options)
+    return this.httpClient.get(`${this.API_URL}/booking/${id}`, options)
       .toPromise();
   }
 

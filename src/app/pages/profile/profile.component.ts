@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,8 +9,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  @Input() user: any;
+
+  feedbackEnabled = false;
+  error = null;
+  processing = false;
   userId: string;
   userObj: object;
+
 
   constructor(private activatedRoute: ActivatedRoute, private profileService: ProfileService) { }
 
@@ -24,4 +30,17 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  handleSubmitProfile(event) {
+      this.profileService.changeProfile(event)
+        .then(() => {
+          console.log("Profile changed")
+        })
+        .catch((err) => {
+          this.error = err.error.error;
+          this.processing = false;
+          this.feedbackEnabled = false;
+
+        });
+    console.log(event);
+    };
 }

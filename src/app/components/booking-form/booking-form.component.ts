@@ -9,9 +9,13 @@ export class BookingFormComponent implements OnInit {
 
   @Input() warehouse: Array<any>;
 
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
 
 }
