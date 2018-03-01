@@ -4,17 +4,18 @@
 
 <div *ngIf="ownerCompany">
 <p>Company Name: {{ ownerCompany.companyName }} </p>
+<p>Company Address: {{ ownerCompany.companyAddress }} </p>
 </div>
 
 <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyAddressField.errors}">
+  <!-- <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyAddressField.errors}">
     <label>Company Address: </label>
     <input type="text" name="companyAddress" [(ngModel)]="warehouse.companyAddress" #companyAddressField="ngModel" required [disabled]="processing"
     />
     <div *ngIf="feedbackEnabled && companyAddressField.errors">
       <p *ngIf="companyAddressField.errors.required" class="validation">Company address required</p>
     </div>
-  </div>
+  </div> -->
 
   <div class="field" [ngClass]="{'has-error': feedbackEnabled && warehouseAddressField.errors}">
     <label> Warehouse Address </label>

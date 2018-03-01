@@ -44,6 +44,7 @@ export class BookingComponent implements OnInit {
 
   handleSubmitBooking(event) {
     event.warehouseAddress = this.warehouseID;
+    event.companyName = this.warehouse.companyName;
     event.seller = this.userObj._id;
     this.bookingService.newBooking(event)
       .then(() => {
