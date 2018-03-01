@@ -33,6 +33,8 @@ import { WarehouseDetailComponent } from './components/warehouse-detail/warehous
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
+import { CreateWarehousePageComponent } from './pages/create-warehouse-page/create-warehouse-page.component';
+import { CreateWarehouseFormComponent } from './components/create-warehouse-form/create-warehouse-form.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,7 @@ const routes: Routes = [
   { path: 'warehouses/:id/booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [RequireUserGuardService] },
+  { path: 'profile/:id/create-warehouse', component: CreateWarehousePageComponent, canActivate: [RequireUserGuardService] },
   { path: '**', redirectTo: '' }
 ];
 
@@ -61,7 +64,9 @@ const routes: Routes = [
     WarehouseDetailComponent,
     DashboardComponent,
     BookingComponent,
-    BookingFormComponent
+    BookingFormComponent,
+    CreateWarehousePageComponent,
+    CreateWarehouseFormComponent
   ],
   imports: [
     BrowserModule,

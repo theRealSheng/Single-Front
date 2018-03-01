@@ -27,4 +27,11 @@ export class WarehouseCardService {
       .toPromise();
   }
 
+  newWarehouse(data): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.post(`${this.API_URL}/warehouses`, data, options)
+      .toPromise();
+  }
 }
