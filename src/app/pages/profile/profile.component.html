@@ -12,5 +12,5 @@
 </div>
 
 <div *ngIf="userObj">
-  <app-profile-form-edit [user]="userObj" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
+  <app-profile-form-edit [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
 </div>

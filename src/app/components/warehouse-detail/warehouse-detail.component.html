@@ -4,10 +4,5 @@
 
 <div *ngIf="warehouse">
   <p> {{ warehouse.companyName }} </p>
-</div>
-
-<a [routerLink]="['/booking']">Contact</a>
-
-<div *ngIf="warehouse">
- <app-booking-form [warehouse]="warehouse"></app-booking-form>
+  <a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Contact</a>
 </div>

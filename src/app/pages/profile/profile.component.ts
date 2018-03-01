@@ -41,6 +41,5 @@ export class ProfileComponent implements OnInit {
           this.feedbackEnabled = false;
 
         });
-    console.log(event);
     };
 }

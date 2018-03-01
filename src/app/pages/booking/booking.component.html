@@ -2,4 +2,4 @@
   booking works!
 </p>
 
-<app-booking-form></app-booking-form>
+<app-booking-form [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitBooking)="handleSubmitBooking($event)"></app-booking-form>

@@ -1,1 +1,1 @@
-console.log('we are cheating');
+console.log('we are awesome!');

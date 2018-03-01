@@ -40,9 +40,9 @@ const routes: Routes = [
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
+  { path: 'warehouses/:id/booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/:id', component: ProfileComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'dashboard/:id', component: DashboardComponent, canActivate: [RequireUserGuardService] },
-  { path: 'booking', component: BookingComponent, canActivate: [RequireUserGuardService] },
   { path: '**', redirectTo: '' }
 ];
 
