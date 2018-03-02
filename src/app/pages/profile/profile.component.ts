@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { ActivatedRoute } from '@angular/router';
-import { UploadService } from '../../services/upload.service';
-import { FileUploader } from "ng2-file-upload";
 
 @Component({
   selector: 'app-profile',
@@ -19,15 +17,11 @@ export class ProfileComponent implements OnInit {
   userId: string;
   userObj: object;
   picture: any;
-  uploader: FileUploader = new FileUploader({
-    url: `/profile/:id`
-  });
-  feedback: string;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
-    private profileService: ProfileService,
-    private uploadService: UploadService) { }
+    private profileService: ProfileService
+  ) { }
 
   ngOnInit() {
 
@@ -37,13 +31,6 @@ export class ProfileComponent implements OnInit {
         this.profileService.getUser(this.userId)
         .then(user => this.userObj = user);
       });
-    this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
-    };
-
-    this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
-    };
   }
 
   handleSubmitProfile(event) {
