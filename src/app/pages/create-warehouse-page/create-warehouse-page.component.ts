@@ -28,11 +28,11 @@ export class CreateWarehousePageComponent implements OnInit {
         this.ownerId = params['id']
         this.profileService.getUser(this.ownerId)
           .then(owner => this.owner = owner)
-        console.log(this.owner);
       })
   }
   handleSubmitWarehouse(event) {
     event.ownerID = this.ownerId;
+    event.companyName = this.owner.companyName;
     this.warehouseCardService.newWarehouse(event)
       .then(() => {
         console.log("New Warehouse Submitted")
