@@ -5,7 +5,7 @@
 
     <span class="logo">S<span class="slash">|</span>L</span>
 
-    <div class="tabs" *ngIf="!loading && !!user">
+    <div #tabElement class="tabs" *ngIf="!loading && !!user">
       <input type='radio' id='r1' name='t' checked>
       <label for='r1' [routerLink]="['/']">Simple Linear</label>
       <input type='radio' id='r2' name='t'>
