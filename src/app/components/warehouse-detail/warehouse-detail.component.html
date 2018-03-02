@@ -1,8 +1,15 @@
-<p>
-  warehouse-detail works!
-</p>
+<div *ngIf="!warehouse">
+  loading...
+</div>
 
-<div *ngIf="warehouse">
-  <p> {{ warehouse.companyName }} </p>
+<div *ngIf="warehouse" class="warehouse-details">
+  <div>
+    <img src="http://via.placeholder.com/450x250">
+  </div>
+  <h1> {{ warehouse.companyName }} </h1>
+  <p> {{ warehouse.warehouseAddress }} </p>
+  <p> {{ warehouse.pricing }} </p>
+  <p> {{ warehouse.description }} </p>
+  <p> {{ warehouse.specialNotes }} </p>
   <a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Contact</a>
 </div>

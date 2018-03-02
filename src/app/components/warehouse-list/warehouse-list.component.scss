@@ -1,97 +1,73 @@
-// Variables
-$bermuda: #ff6636;
-// clear-fix mixin
-@mixin cf {
-  &::before,
-  &::after {
-    content: '';
-    display: table;
-  }
-  &::after {
-    clear: both;
-  }
-}
+@import '../../../styles.scss';
 
-* {
-  box-sizing: border-box;
-}
-
-.grid {
+.list {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   margin-top: 150px;
+  li {
+    list-style-type: none;
+  }
 }
 
-li {
-  list-style-type: none;
-}
-
-// Base styles
 .card {
   padding: 0 1.7rem;
-  .wrapper {
-    background-color: rgb(255,255,255);
-    min-height: 540px;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
-    &:hover {
-      .data {
-        transform: translateY(0);
-      }
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+  min-height: 540px;
+  background: url(http://via.placeholder.com/865x567) center / cover no-repeat;
+  box-shadow: $box-shadow;
+  &:hover {
+    .info {
+      transform: translateY(0);
     }
-  }
-  .date {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $bermuda;
-    color: rgb(255,255,255);
-    padding: 0.8em;
-    span {
-      display: block;
-      text-align: center;
-    }
-    .day {
-      font-size: 24px;
-    }
-  }
-  .data {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    transform: translateY(calc(70px + 1em));
-    transition: transform 0.3s;
-    .content {
-      padding: 1em;
-      position: relative;
-      z-index: 1;
-    }
-  }
-  .title {
-    margin-top: 10px;
-    border-bottom: 4px solid #34b7ec;
-    display: inline-block;
-  }
-  .text {
-    height: 70px;
-    margin: 0;
-  }
-  input[type='checkbox'] {
-    display: none;
-  }
-  input[type='checkbox']:checked + .menu-content {
-    transform: translateY(-60px);
   }
 }
 
-// First example styles
-.example-1 {
-  .wrapper {
-    background: url(http://via.placeholder.com/865x567) center / cover no-repeat;
-  }
-  .content {
-    background-color: rgb(255,255,255);
-    box-shadow: 0 5px 30px 10px rgba(0,0,0,0.3);
-  }
+.price {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $red;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding: 0.8em;
 }
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(calc(70px + 1em));
+  transition: transform 0.3s;
+}
+
+.content {
+  padding: 1em;
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  box-shadow: $box-shadow;
+}
+
+.name {
+  margin-top: 10px;
+}
+
+.description {
+  height: 70px;
+  margin: 0;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+input[type='checkbox']:checked + .menu-content {
+  transform: translateY(-60px);
+}
+
+

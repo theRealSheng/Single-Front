@@ -1,33 +1,12 @@
+@import '../styles.scss';
+
 nav {
   position: fixed;
   top: 0;
   width: 100%;
+  box-shadow: $box-shadow;
   background-color: white;
   padding: 5px;
-  box-shadow: 0 1px 30px 1px rgba(0,0,0,0.05);
-}
-
-h1 {
-  color: #34b7ec;
-  display: inline;
-  font-size: 40px;
-  letter-spacing: 0.1em;
-  margin: 0;
-  font-weight: 100;
-  justify-self: end;
-}
-
-.slash {
-  color: #ff6636;
-}
-
-.sub-nav{
-  display: inline;
-  align-self: center;
-}
-
-img {
-  width: 80%;
 }
 
 .main-nav {
@@ -35,40 +14,26 @@ img {
   grid-template-columns: 10% 70% 20%;
 }
 
-.nav-bar {
+.logo{
+  display: inline;
+  justify-self: end;
+  font-size: 40px;
+  letter-spacing: 0.1em;
+  font-weight: 100;
+  color: $blue;
+  margin: 0;
+}
+
+.slash {
+  color: $red;
+}
+
+.tabs {
+  display: inline;
   align-self: center;
-}
-
-a {
-  margin: 10px;
-}
-
-.content {
-  display: none;
-}
-
-.tabs [type=radio] {
-  display: none;   
-}
-
-label, input {
-  display: inline-block;
-  margin: 10px;
-  border: white;
-}
-
-label:focus {
-  background-image: none;
-  outline: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-#slider {
-  display: inline-block;
-  border-bottom: 3px solid #ff6636;
-  transition: transform 0.5s;
-  width: 90px;
+  [type=radio] {
+    display: none;   
+  }
 }
 
 [type=radio],#r1:checked ~ #slider {
@@ -87,8 +52,34 @@ label:focus {
   transform: translate(-94px, 10px);
 }
 
+label, input {
+  display: inline-block;
+  margin: 10px;
+}
 
-// [type=radio]:checked + label + .content {
-//   display: inline-block;
-// }
+label:focus {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+#slider {
+  display: inline-block;
+  width: 90px;
+  border-bottom: 3px solid $red;
+  transition: transform 0.5s;
+}
+
+.auth {
+  align-self: center;
+  a {
+    margin: 10px;
+  }
+}
+
+
+
+
+
 

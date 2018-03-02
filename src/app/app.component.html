@@ -1,11 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
 <nav>
 
   <div class="main-nav">
-    <h1>S<span class="slash">|</span>L</h1>
-    <div *ngIf="!loading && !!user" class="sub-nav tabs">
 
+    <span class="logo">S<span class="slash">|</span>L</span>
+
+    <div class="tabs" *ngIf="!loading && !!user">
       <input type='radio' id='r1' name='t' checked>
       <label for='r1' [routerLink]="['/']">Simple Linear</label>
       <input type='radio' id='r2' name='t'>
@@ -15,11 +15,11 @@
       <input type='radio' id='r4' name='t'>
       <label for='r4' [routerLink]="['/profile', user._id]">My Profile</label>
       <div id='slider'></div>
-
     </div>
-    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="nav-bar">
+
+    <div class="auth" [ngClass]="{'is-user': user, 'is-anon': anon}">
       <div *ngIf="loading">
-        <span class="username text">loading...</span>
+        <span>loading...</span>
       </div>
       <div *ngIf="!loading && !!user">
         <a (click)="profile()">{{user.username}}</a>
@@ -30,8 +30,8 @@
         <a (click)="signup()">signup</a>
       </div>
     </div>
-  </div>
 
+  </div>
 
 </nav>
 
