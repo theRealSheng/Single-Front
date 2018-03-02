@@ -1,0 +1,6 @@
+<form>
+  <input type="text" [(ngModel)]="name" name="name" required />
+  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+  <button (click)="submit()"> submit </button>
+</form>
+{{feedback}}

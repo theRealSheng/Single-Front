@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FileSelectDirective } from "ng2-file-upload";
 
 // Services
 
@@ -35,10 +36,12 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
 import { CreateWarehousePageComponent } from './pages/create-warehouse-page/create-warehouse-page.component';
 import { CreateWarehouseFormComponent } from './components/create-warehouse-form/create-warehouse-form.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 
 const routes: Routes = [
   { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
+  { path: 'upload', component: UploadComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
@@ -66,7 +69,9 @@ const routes: Routes = [
     BookingComponent,
     BookingFormComponent,
     CreateWarehousePageComponent,
-    CreateWarehouseFormComponent
+    CreateWarehouseFormComponent,
+    FileSelectDirective,
+    UploadComponent
   ],
   imports: [
     BrowserModule,

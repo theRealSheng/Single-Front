@@ -1,7 +1,10 @@
 <p>
   profile works!
 </p>
-<img src="http://via.placeholder.com/350x150" alt="Profile-pic">
+
+<form>
+<input type="file" id="file-input" name="file-input" (change)="upload()">
+</form>
 
 <div *ngIf="userObj">
 <p> Username: {{ userObj.username }} </p>
