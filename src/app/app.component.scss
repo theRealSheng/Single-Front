@@ -3,21 +3,92 @@ nav {
   top: 0;
   width: 100%;
   background-color: white;
-  padding: 20px;
+  padding: 5px;
+  box-shadow: 0 1px 30px 1px rgba(0,0,0,0.05);
+}
+
+h1 {
+  color: #34b7ec;
+  display: inline;
+  font-size: 40px;
+  letter-spacing: 0.1em;
+  margin: 0;
+  font-weight: 100;
+  justify-self: end;
+}
+
+.slash {
+  color: #ff6636;
+}
+
+.sub-nav{
+  display: inline;
+  align-self: center;
+}
+
+img {
+  width: 80%;
 }
 
 .main-nav {
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 10% 70% 20%;
 }
 
 .nav-bar {
   align-self: center;
 }
 
-
-h1 {
-  text-align: left;
-  display: inline;
+a {
+  margin: 10px;
 }
+
+.content {
+  display: none;
+}
+
+.tabs [type=radio] {
+  display: none;   
+}
+
+label, input {
+  display: inline-block;
+  margin: 10px;
+  border: white;
+}
+
+label:focus {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#slider {
+  display: inline-block;
+  border-bottom: 3px solid #ff6636;
+  transition: transform 0.5s;
+  width: 90px;
+}
+
+[type=radio],#r1:checked ~ #slider {
+  transform: translate(-415px, 10px);
+}
+
+[type=radio],#r2:checked ~ #slider {
+  transform: translate(-300px, 10px);
+}
+
+[type=radio],#r3:checked ~ #slider {
+  transform: translate(-193px, 10px);
+}
+
+[type=radio],#r4:checked ~ #slider {
+  transform: translate(-94px, 10px);
+}
+
+
+// [type=radio]:checked + label + .content {
+//   display: inline-block;
+// }
 

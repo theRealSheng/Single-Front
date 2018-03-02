@@ -3,9 +3,19 @@
 <nav>
 
   <div class="main-nav">
-    <div style="text-align:center" class="logo">
-      <img src="../assets/img/simple-linear-logo.jpg">
-      <h1>simple linear</h1>
+    <h1>S<span class="slash">|</span>L</h1>
+    <div *ngIf="!loading && !!user" class="sub-nav tabs">
+
+      <input type='radio' id='r1' name='t' checked>
+      <label for='r1' [routerLink]="['/']">Simple Linear</label>
+      <input type='radio' id='r2' name='t'>
+      <label for='r2' [routerLink]="['/warehouses']">Warehouses</label>
+      <input type='radio' id='r3' name='t'>
+      <label for='r3' [routerLink]="['/dashboard', user._id]">Dashboard</label>
+      <input type='radio' id='r4' name='t'>
+      <label for='r4' [routerLink]="['/profile', user._id]">My Profile</label>
+      <div id='slider'></div>
+
     </div>
     <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="nav-bar">
       <div *ngIf="loading">
@@ -22,11 +32,6 @@
     </div>
   </div>
 
-  <div *ngIf="!loading && !!user" class="sub-nav">
-    <a [routerLink]="['/warehouses']">Warehouses</a>
-    <a [routerLink]="['/dashboard', user._id]">Dashboard</a>
-    <a [routerLink]="['/profile', user._id]"> To Do & Profile </a>
-  </div>
 
 </nav>
 
