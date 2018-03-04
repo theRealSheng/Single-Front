@@ -1,3 +1,21 @@
-.description {
-  margin-top: 100px;
+@import '../../../styles.scss';
+
+
+.form-container {
+  margin: 0 10% 10% 10%;
+  padding: 2%;
+  @extend %form;
+  input {
+    background-color: $lightgrey;
+  }
 }
+
+h3 {
+  margin: 5% 2%;
+}
+
+button {
+  @extend %btn;
+  display: block;
+}
+

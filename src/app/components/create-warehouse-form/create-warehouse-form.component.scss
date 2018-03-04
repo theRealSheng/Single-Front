@@ -1,4 +1,33 @@
+@import '../../../styles.scss';
 
-p {
-  margin-top: 100px;
+.form-container {
+  margin: 0 10% 10% 10%;
+  padding: 2%;
+  box-shadow: $box-shadow;
+  background-color: white;
+  @extend %form;
+}
+
+.prefilled {
+  margin: 5% 2%;
+}
+
+h3 {
+  margin: 5% 2%;
+}
+
+h4 {
+  margin-top: 0;
+}
+
+.input-select {
+  @extend %select;
+  select {
+    background-color: white;
+  }
+}
+
+button {
+  @extend %btn;
+  display: block;
 }

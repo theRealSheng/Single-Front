@@ -1,13 +1,11 @@
-<p>
-  profile works!
-</p>
+
 
 <div *ngIf="userObj">
   <app-upload [user]="userObj" (success)="handleSuccess($event)"></app-upload>
 </div>
 
 <div *ngIf="userObj">
-<p><img [src]="imageBaseUrl + userObj.picture" /></p>
+<img [src]="imageBaseUrl + userObj.picture" />
 <p> Username: {{ userObj.username }} </p>
 <p> Name: {{ userObj.companyName }} </p>
 <p> Company Address: {{ userObj.companyAddress }} </p>

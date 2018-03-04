@@ -1,23 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* ---- reset ---- */
-
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body, ul {
-  margin: 0;
-  height: 0;
-}
-
-*:focus {
-  outline: none;
-}
-
 
 /* ---- scss ---- */
 
@@ -26,6 +8,7 @@ body, ul {
 $red:#ff6636;
 $blue: #34b7ec;
 $green: #009675;
+$lightgrey: #fbf9f9;
 $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
 $tablet-width: 768px;
 $desktop-width: 1200px;
@@ -44,12 +27,6 @@ $desktop-width: 1200px;
 }
 
 // responsive 
-// @mixin mobile {
-//   @media (max-width: #{$tablet-width - 1px}) {
-//     @content;
-//   }
-// }
-
 @mixin tablet {
   @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
     @content;
@@ -144,6 +121,26 @@ $desktop-width: 1200px;
     border: none;
   }
 }
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, ul {
+  margin: 0;
+  height: 0;
+  background-color: $lightgrey;
+}
+
+*:focus {
+  outline: none;
+}
+
 
 
 /* ---- typography ---- */

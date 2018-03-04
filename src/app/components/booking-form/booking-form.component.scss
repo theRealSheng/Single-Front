@@ -1,9 +1,10 @@
 @import '../../../styles.scss';
 
 .form-container {
-  margin: 0 10%;
+  margin: 0 10% 10% 10%;
   padding: 2%;
   box-shadow: $box-shadow;
+  background-color: white;
   @extend %form;
 }
 
@@ -31,14 +32,6 @@ h4 {
     background-color: white;
   }
 }
-
-// .input-field {
-//   @extend %input-field;
-// }
-
-// .input-checkbox {
-//   @extend %input-checkbox;
-// }
 
 button {
   @extend %btn;

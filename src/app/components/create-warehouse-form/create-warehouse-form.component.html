@@ -1,52 +1,41 @@
-<p>
-  create-warehouse-page works!
-</p>
 
 <app-upload></app-upload>
 
-<div *ngIf="ownerCompany">
-<p>Company Name: {{ ownerCompany.companyName }} </p>
-<p>Company Address: {{ ownerCompany.companyAddress }} </p>
+<div class="form-container"> 
+  <h3>WAREHOUSE OWNER DETAILS</h3>
+  <div class="prefilled" *ngIf="ownerCompany">
+    <p>{{ ownerCompany.companyName }} </p>
+    <p>{{ ownerCompany.companyAddress }} </p>
+  </div>
+  
+  <h3>ENTER WAREHOUSE DETAILS</h3>
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && warehouseAddressField.errors}">
+      <input placeholder="Warehouse address" type="text" name="warehouseAddress" [(ngModel)]="warehouse.warehouseAddress" #warehouseAddressField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && warehouseAddressField.errors">
+        <p *ngIf="warehouseAddressField.errors.required" class="validation">Company name required</p>
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && pricingField.errors}">
+      <input placeholder="Pricing" type="text" name="pricing" [(ngModel)]="warehouse.pricing" #pricingField="ngModel" required [disabled]="processing" />
+      <div *ngIf="feedbackEnabled && pricingField.errors">
+        <p *ngIf="pricingField.errors.required" class="validation">Company address required</p>
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
+      <input type="text" name="description" [(ngModel)]="warehouse.description" #descriptionField="ngModel" [disabled]="processing" placeholder="Description"/>
+      <div *ngIf="feedbackEnabled && descriptionField.errors"></div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && specialNotesField.errors}">
+      <input type="text" name="specialNotes" [(ngModel)]="warehouse.specialNotes" #specialNotesField="ngModel" [disabled]="processing" placeholder="Special notes"/>
+      <div *ngIf="feedbackEnabled && specialNotesField.errors"></div>
+    </div>
+
+    <div class="field submit">
+      <button type="submit" [disabled]="processing">Submit</button>
+    </div>
+  </form>
 </div>
-
-<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && warehouseAddressField.errors}">
-    <label> Warehouse Address </label>
-    <input type="text" name="warehouseAddress" [(ngModel)]="warehouse.warehouseAddress" #warehouseAddressField="ngModel" required [disabled]="processing"
-    />
-    <div *ngIf="feedbackEnabled && warehouseAddressField.errors">
-      <p *ngIf="warehouseAddressField.errors.required" class="validation">Company name required</p>
-    </div>
-  </div>
-
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && pricingField.errors}">
-    <label>Pricing: </label>
-    <input type="text" name="pricing" [(ngModel)]="warehouse.pricing" #pricingField="ngModel" required [disabled]="processing" />
-    <div *ngIf="feedbackEnabled && pricingField.errors">
-      <p *ngIf="pricingField.errors.required" class="validation">Company address required</p>
-    </div>
-  </div>
-
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && specialNotesField.errors}">
-    <label>Special Notes: </label>
-    <input type="text" name="specialNotes" [(ngModel)]="warehouse.specialNotes" #specialNotesField="ngModel" [disabled]="processing"
-      placeholder="Please put general information of your company. For each warehouse post you put, you can put extra information for that individual warehouse"
-    />
-    <div *ngIf="feedbackEnabled && specialNotesField.errors">
-    </div>
-  </div>
-
-  <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
-    <label>Description: </label>
-    <input type="text" name="description" [(ngModel)]="warehouse.description" #descriptionField="ngModel" [disabled]="processing"
-      placeholder="Please put general information of your company. For each warehouse post you put, you can put extra information for that individual warehouse"
-    />
-    <div *ngIf="feedbackEnabled && descriptionField.errors">
-    </div>
-  </div>
-
-
-  <div class="field submit">
-    <button type="submit" [disabled]="processing">Submit changes</button>
-  </div>
-</form>
