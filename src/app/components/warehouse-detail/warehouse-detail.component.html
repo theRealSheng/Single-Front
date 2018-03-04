@@ -2,14 +2,23 @@
   loading...
 </div>
 
-<div *ngIf="warehouse" class="warehouse-details">
-  <div>
-    <img src="http://via.placeholder.com/450x250">
+<div class="warehouse-details" *ngIf="warehouse">
+  <div class="img-upload">
+    <div class="img-grid">
+      <div class="img-box">
+        <img src="http://via.placeholder.com/450x300">
+      </div>
+      <p class="red"></p>
+      <p class="blue"></p>
+    </div>
+    <button class="btn"><a href="#">Upload picture</a></button>
   </div>
-  <h1> {{ warehouse.companyName }} </h1>
-  <p> {{ warehouse.warehouseAddress }} </p>
-  <p> {{ warehouse.pricing }} </p>
-  <p> {{ warehouse.description }} </p>
-  <p> {{ warehouse.specialNotes }} </p>
-  <a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Contact</a>
+  <div class="info">
+    <h3> {{ warehouse.companyName }} </h3>
+    <p> {{ warehouse.warehouseAddress }} </p>
+    <p> {{ warehouse.pricing }} </p>
+    <p> {{ warehouse.description }} </p>
+    <p> {{ warehouse.specialNotes }} </p>
+    <button class="btn"><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
+  </div>
 </div>

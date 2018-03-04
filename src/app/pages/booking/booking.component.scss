@@ -1,4 +1,6 @@
+@import '../../../styles.scss';
 
-p {
-  margin-top: 100px;
+.headline {
+  @extend %headline;
 }
+

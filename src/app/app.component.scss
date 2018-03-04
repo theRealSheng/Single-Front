@@ -11,7 +11,7 @@ nav {
 
 .main-nav {
   display: grid;
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 10% 60% 30%;
 }
 
 .logo{
@@ -73,8 +73,9 @@ label:focus {
 
 .auth {
   align-self: center;
-  a {
+  button {
     margin: 10px;
+    @extend %btn;
   }
 }
 

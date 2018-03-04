@@ -1,66 +1,58 @@
-<p>
-  booking-form works!
-</p>
 
-<p>To:</p> 
+<div class="form-container"> 
+  <h3>CONTACT DETAILS</h3>
 
-  <div *ngIf="warehouse" class="prefilled">
-    <label>Warehouse Name:</label> 
-    <span>{{warehouse.companyName }}</span>
-    <label>Warehouse Address:</label> 
-    <span>{{ warehouse.warehouseAddress }}</span>
+  <div class="contact-details">
+    <div *ngIf="warehouse" class="prefilled">
+      <h4>Warehouse details:</h4>
+      <p>{{warehouse.companyName }}</p>
+      <p>{{ warehouse.warehouseAddress }}</p>
+    </div>
+    
+    <div *ngIf="user" class="prefilled">
+      <h4>Your details:</h4>
+      <p>{{user.companyName }}</p>
+      <p>{{ user.companyAddress }}</p>
+    </div>
   </div>
 
-<p>From: </p>
-
-<div *ngIf="user" class="prefilled">
-  <label> Your Company:</label>
-  <span>{{user.companyName }}</span>
-  <label> Your Address:</label>
-  <span>{{ user.companyAddress }}</span>
-</div>
-
-<div class="form-container">
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
+    <h3>ORDER DETAILS</h3>
+
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && productNameField.errors}">
-      <label>Product: </label>
-      <input type="text" name="productName" [(ngModel)]="booking.productName" #productNameField="ngModel" required [disabled]="processing"/>
+      <input placeholder="Product name" type="text" name="productName" [(ngModel)]="booking.productName" #productNameField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && productNameField.errors">
         <p *ngIf="productNameField.errors.required" class="validation">Product name required</p>
       </div>
     </div>
   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && dimsWeightField.errors}">
-      <label>Dims and weight: </label>
-      <input type="text" name="dimsWeight" [(ngModel)]="booking.dimsWeight" #dimsWeightField="ngModel" required [disabled]="processing"/>
+      <input placeholder="Volume and weight overall" type="text" name="dimsWeight" [(ngModel)]="booking.dimsWeight" #dimsWeightField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && dimsWeightField.errors">
         <p *ngIf="dimsWeightField.errors.required" class="validation">Dims and weight required</p>
       </div>
     </div>
     
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && expectedVolWeightShipField.errors}">
-      <label>Expected volume and weight per month: </label>
-      <input type="text" name="expectedVolWeightShip" [(ngModel)]="booking.expectedVolWeightShip" #expectedVolWeightShipField="ngModel" required [disabled]="processing"/>
+      <input placeholder="Volume and weight per shipment" type="text" name="expectedVolWeightShip" [(ngModel)]="booking.expectedVolWeightShip" #expectedVolWeightShipField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && expectedVolWeightShipField.errors">
         <p *ngIf="expectedVolWeightShipField.errors.required" class="validation">Company address required</p>
       </div>
     </div>
     
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && expectedVolWeightMonthField.errors}">
-      <label>Expected volume and weight per month: </label>
-      <input type="text" name="expectedVolWeightMonth" [(ngModel)]="booking.expectedVolWeightMonth" #expectedVolWeightMonthField="ngModel" [disabled]="processing"/>
+      <input placeholder="Volume and weight per month" type="text" name="expectedVolWeightMonth" [(ngModel)]="booking.expectedVolWeightMonth" #expectedVolWeightMonthField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && expectedVolWeightMonthField.errors">
       </div>
     </div>
     
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && expTurnOverField.errors}">
-      <label>Expected turnover:(Days) </label>
-      <input type="number" name="expTurnOver" [(ngModel)]="booking.expTurnOver" #expTurnOverField="ngModel" [disabled]="processing"/>
+      <input placeholder="Expected turnover (in days)" type="number" name="expTurnOver" [(ngModel)]="booking.expTurnOver" #expTurnOverField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && expTurnOverField.errors">
       </div>
     </div>
     
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && packCargoField.errors}">
+    <div class="field cargo" [ngClass]="{'has-error': feedbackEnabled && packCargoField.errors}">
       <label>Package cargo: </label>
       <select name="packCargo" [(ngModel)]="booking.packCargo" #packCargoField="ngModel" required>
         <option></option>
@@ -74,13 +66,11 @@
     </div>
 
     <div>
-      <input type="checkbox" id="hazmat" name="hazmat" value="hazmat" [(ngModel)]="booking.hazmat">
-      <label for="hazmat">Is hazmat?</label>
+      <input class="hazmat" type="checkbox" id="hazmat" name="hazmat" value="hazmat" [(ngModel)]="booking.hazmat">
+      <label for="hazmat">Hazmat</label>
     </div>
 
-    <div class="submit">
-      <button type="submit" [disabled]="processing">Contact</button>
-    </div>
+    <button class="btn" type="submit" [disabled]="processing">Submit</button>
   </form>
 </div>
   
