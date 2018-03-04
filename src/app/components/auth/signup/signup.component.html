@@ -22,8 +22,8 @@
         <label>Role: </label>
         <select class="auth-input" name="role" [(ngModel)]="role" #signUpRole="ngModel" required>
           <option></option>
-          <option value="seller">Seller</option>
-          <option value="warehouse">Warehouse</option>
+          <option value="SELLER">Seller</option>
+          <option value="OWNER">Warehouse</option>
         </select>
         <div *ngIf="feedbackEnabled && signUpRole.errors">
           <p *ngIf="signUpRole.errors.required" class="validation">Role required</p>

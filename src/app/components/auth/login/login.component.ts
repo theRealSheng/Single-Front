@@ -13,11 +13,10 @@ export class LoginComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
-  // ... model (e,g. username: String)
-
-  constructor(private authService: AuthService, private router: Router) { }
   username: string;
   password: string;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -41,7 +40,6 @@ export class LoginComponent implements OnInit {
           this.processing = false;
           this.feedbackEnabled = false;
         });
-
       };
     }
 }

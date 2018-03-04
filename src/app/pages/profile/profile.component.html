@@ -1,5 +1,15 @@
 
 
+<p>Please fill in your profile in order to be able to publish your warehouse</p>
+
+<div *ngIf="userObj">
+  <img [src]="imageBaseUrl + userObj.picture" />
+</div>
+
+<div *ngIf="userObj && userObj.role==='OWNER' && modifiedProfile">
+    <a [routerLink]="['/profile', userObj._id, 'create-warehouse']"> +Create New Warehouse</a>
+</div>
+
 <div *ngIf="userObj">
   <app-upload [user]="userObj" (success)="handleSuccess($event)"></app-upload>
 </div>
@@ -16,3 +26,5 @@
 <div *ngIf="userObj">
   <app-profile-form-edit [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
 </div>
+
+
