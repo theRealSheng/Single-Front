@@ -18,30 +18,32 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 
+// Pages
+
+import { AuthComponent } from './pages/auth/auth.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { WarehousesComponent } from './pages/warehouses/warehouses.component';
+import { SingleWarehousePageComponent } from './pages/single-warehouse-page/single-warehouse-page.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BookingComponent } from './pages/booking/booking.component';
+import { CreateWarehousePageComponent } from './pages/create-warehouse-page/create-warehouse-page.component';
+
 // Components
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
-import { AuthComponent } from './pages/auth/auth.component';
-import { HomepageComponent } from './pages/homepage/homepage.component';
-import { WarehousesComponent } from './pages/warehouses/warehouses.component';
 import { WarehouseListComponent } from './components/warehouse-list/warehouse-list.component';
-import { SingleWarehousePageComponent } from './pages/single-warehouse-page/single-warehouse-page.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileFormEditComponent } from './components/profile-form-edit/profile-form-edit.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { BookingComponent } from './pages/booking/booking.component';
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
-import { CreateWarehousePageComponent } from './pages/create-warehouse-page/create-warehouse-page.component';
 import { CreateWarehouseFormComponent } from './components/create-warehouse-form/create-warehouse-form.component';
 import { UploadComponent } from './components/upload/upload.component';
 
 
 const routes: Routes = [
   { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
-  { path: 'upload', component: UploadComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },

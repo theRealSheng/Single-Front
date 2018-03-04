@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FileUploader } from "ng2-file-upload";
 
 @Component({
@@ -8,22 +8,28 @@ import { FileUploader } from "ng2-file-upload";
 })
 export class UploadComponent implements OnInit {
 
+  @Output() success: any = new EventEmitter<string>();
+  @Input() user: any;
+
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/uploads`
   });
 
-  feedback: string;
+  error: string;
   name: string;
+  picture: any;
 
   constructor() { }
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
-      this.feedback = JSON.parse(response).message;
+      this.success = 'Upload success!';
+      const newImage = JSON.parse(response).picture;
+      this.success.emit(newImage)
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
-      this.feedback = JSON.parse(response).message;
+      this.error = 'There was an error, please try again';
     };
   }
 
@@ -34,5 +40,5 @@ export class UploadComponent implements OnInit {
 
     this.uploader.uploadAll();
   }
-
+  
 }

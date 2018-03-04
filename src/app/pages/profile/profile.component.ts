@@ -15,8 +15,9 @@ export class ProfileComponent implements OnInit {
   error = null;
   processing = false;
   userId: string;
-  userObj: object;
+  userObj: any;
   picture: any;
+  imageBaseUrl = 'http://localhost:3000';
 
   constructor(
     private activatedRoute: ActivatedRoute, 
@@ -29,7 +30,7 @@ export class ProfileComponent implements OnInit {
       .subscribe(params => {
         this.userId = params['id']
         this.profileService.getUser(this.userId)
-        .then(user => this.userObj = user);
+          .then(user => this.userObj = user);
       });
   }
 
@@ -45,5 +46,10 @@ export class ProfileComponent implements OnInit {
 
         });
     };
+
+
+  handleSuccess(newImage) {
+    this.userObj.picture = newImage;
+  }
 
 }
