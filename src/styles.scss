@@ -27,7 +27,8 @@ $red:#ff6636;
 $blue: #34b7ec;
 $green: #009675;
 $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
-
+$tablet-width: 768px;
+$desktop-width: 1200px;
 
 /* Mixins */
 // clear-fix
@@ -41,6 +42,26 @@ $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
     clear: both;
   }
 }
+
+// responsive 
+// @mixin mobile {
+//   @media (max-width: #{$tablet-width - 1px}) {
+//     @content;
+//   }
+// }
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 
 
 /* Extends */
@@ -82,7 +103,9 @@ $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
   }
   .fourth {
     grid-column-start: 2;
-    grid-row-start: 2;
+    @include desktop {
+      grid-row-start: 2;
+    }
     margin: 0 0 0 5px;
   }
 }
