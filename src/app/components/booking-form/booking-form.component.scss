@@ -4,6 +4,7 @@
   margin: 0 10%;
   padding: 2%;
   box-shadow: $box-shadow;
+  @extend %form;
 }
 
 .contact-details {
@@ -17,65 +18,29 @@ label {
 }
 
 h3 {
-  border-bottom: 4px solid $blue;
   margin: 5% 2%;
 }
 
 h4 {
-  font-size: 20px;
   margin-top: 0;
 }
 
-.cargo {
-  border-bottom: 1px solid black;
-  color: grey;
-  margin: 5% 2%;
-  display: grid;
-  grid-template-columns: 20% auto;
-  label {
-    padding: 0;
+.input-select {
+  @extend %select;
+  select {
+    background-color: white;
   }
 }
 
-select {
-  background-color: white;
-  border: none;
-  font-size: 16px;
-  :focus {
-    background-image: none;
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-}
+// .input-field {
+//   @extend %input-field;
+// }
 
-input {
-  border: none;
-  border-bottom: 1px solid black;
-  display: block;
-  width: 96%;
-  font-size: 16px;
-  margin: 5% 2%;
-  :focus {
-    background-image: none;
-    outline: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-}
-
-.hazmat {
-  display: inline;
-  width: auto;
-  margin: 0 auto 0 2%;
-  label {
-    color: grey;
-    padding: 0;
-  } 
-}
+// .input-checkbox {
+//   @extend %input-checkbox;
+// }
 
 button {
   @extend %btn;
   display: block;
-  color: white;
 }

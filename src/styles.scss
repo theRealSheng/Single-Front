@@ -14,31 +14,8 @@ body, ul {
   height: 0;
 }
 
-
-/* ---- typography ---- */
-
-h1, h2, h3, h4, p, li, a, label, button, span {
-  font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-  text-transform: uppercase;
-  margin-top: 100px;
-}
-
-h2 {
-  font-size: 35px;
-  border-bottom: 4px solid #34b7ec;
-  display: inline-block;
-}
-
-h3 {
-  font-size: 30px;
-}
-
-a {
-  color: black;
-  text-decoration: none;
+*:focus {
+  outline: none;
 }
 
 
@@ -110,4 +87,73 @@ $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
   }
 }
 
+// form input
 
+%form {
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+    display: block;
+    width: 96%;
+    margin: 5% 2%;
+  }
+  input[type=checkbox] {
+    margin: 0 auto 0 2%;
+    display: inline;
+    width: auto;
+    label {
+      color: grey;
+      padding: 0;
+    }
+  } 
+}
+
+%select {
+  border-bottom: 1px solid black;
+  color: grey;
+  margin: 5% 2%;
+  display: grid;
+  grid-template-columns: 20% auto;
+  label {
+    padding: 0;
+  }
+  select {
+    border: none;
+  }
+}
+
+
+/* ---- typography ---- */
+
+h1, h2, h3, h4, p, li, a, label, button, span, select, input {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  margin-top: 100px;
+}
+
+h2 {
+  font-size: 35px;
+  border-bottom: 4px solid $blue;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 30px;
+  border-bottom: 4px solid $blue;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+select, input {
+  font-size: 16px;
+}

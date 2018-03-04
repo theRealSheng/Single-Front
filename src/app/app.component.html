@@ -22,12 +22,10 @@
         <span>loading...</span>
       </div>
       <div *ngIf="!loading && !!user">
-        <button class="btn"><a (click)="profile()">{{user.username}}</a></button>
         <button class="btn"><a (click)="logout()">logout</a></button>
       </div>
       <div *ngIf="!loading && anon">
-        <button class="btn"><a (click)="login()">login</a></button>
-        <button class="btn"><a (click)="signup()">signup</a></button>
+        <button class="btn"><a (click)="login()">login & signup</a></button>
       </div>
     </div>
 
