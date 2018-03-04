@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   @Input() user: any;
-
+  @Input() newImage: any;
+  
   feedbackEnabled = false;
   error = null;
   processing = false;
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   userObj: any;
   picture: any;
   imageBaseUrl = 'http://localhost:3000';
+  modifiedProfile: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
@@ -37,13 +39,13 @@ export class ProfileComponent implements OnInit {
   handleSubmitProfile(event) {
       this.profileService.changeProfile(event)
         .then(() => {
+          this.modifiedProfile = true;
           console.log("Profile changed")
         })
         .catch((err) => {
           this.error = err.error.error;
           this.processing = false;
           this.feedbackEnabled = false;
-
         });
     };
 

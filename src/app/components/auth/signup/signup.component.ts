@@ -17,7 +17,6 @@ export class SignupComponent implements OnInit {
   username: String;
   password: String;
   role: String;
-  // ... model (e,g. username: String)
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -40,7 +39,7 @@ export class SignupComponent implements OnInit {
           //     // ... navigate with this.router.navigate(['...'])
         })
         .catch((err) => {
-          this.error = err.error.error; // :slightly_smiling_face:
+          this.error = err.error.error; 
           this.processing = false;
           this.feedbackEnabled = false;
         });
