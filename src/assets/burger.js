@@ -1,6 +1,6 @@
 'use strict';
 
-document.getElementById("img-wrapper").addEventListener ("click", toggleNav);
+document.getElementById("img-wrapper").addEventListener("click", toggleNav);
 
 function toggleNav() {
   var nav = document.getElementById("main-nav");
