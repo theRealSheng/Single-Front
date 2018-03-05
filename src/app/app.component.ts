@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
       if(url.includes('profile')) {
         this.tabElement.nativeElement.children.r4.checked = true;
       }
-    }, 10000)
+    }, 1000)
   }
 
   login() {
