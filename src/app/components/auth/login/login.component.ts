@@ -1,7 +1,4 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-
-import { AuthService } from '../../../services/auth.service';
+import { Component, OnInit, Output, Input,  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +7,15 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  feedbackEnabled = false;
-  error = null;
-  processing = false;
+  @Output() submitLoginForm =  new EventEmitter<Object>();
+
+  @Input() feedbackEnabled;
+  @Input() error;
+  @Input() processing;
   username: string;
   password: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -25,21 +24,11 @@ export class LoginComponent implements OnInit {
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid) {
-      this.processing = true;
       const data = {
         username: this.username,
         password: this.password
       }
-      this.authService.login(data)
-        .then((result) => {
-          this.router.navigate(['/homepage'])
-          //     // ... navigate with this.router.navigate(['...'])
-        })
-        .catch((err) => {
-          this.error = err.error.error; // :slightly_smiling_face:
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
-      };
+      this.submitLoginForm.emit(data);
     }
+  }
 }
