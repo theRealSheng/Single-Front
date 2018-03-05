@@ -10,15 +10,39 @@ nav {
   z-index: 1;
 }
 
-.main-nav {
+#main-nav {
   display: grid;
-  grid-template-columns: 10% 70% 20%;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  @include tablet {
+    grid-template-columns: 10% 70% 20%;
+  }
+  @include desktop {
+    grid-template-columns: 10% 70% 20%;
+  }
   text-transform: uppercase;
 }
 
-.logo{
+#img-wrapper {
+  display: inherit;
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
+  align-self: center;
+}
+
+.logo {
   display: inline;
-  justify-self: end;
+  align-self: center;
+  justify-self: center;
+  @include tablet {
+    justify-self: end;
+  }
+  @include desktop {
+    justify-self: end;
+  }
   font-size: 40px;
   letter-spacing: 0.1em;
   font-weight: 100;
@@ -31,7 +55,13 @@ nav {
 }
 
 .tabs {
-  display: inline;
+  display: none;
+  @include tablet {
+    display: inline;
+  }
+  @include desktop {
+    display: inline;
+  }
   align-self: center;
   [type=radio] {
     display: none;   
