@@ -1,32 +1,41 @@
 
-
-<p>Please fill in your profile in order to be able to publish your warehouse</p>
-
-
-<div *ngIf="userObj && userObj.role==='OWNER' && modifiedProfile">
-  <a [routerLink]="['/profile', userObj._id, 'create-warehouse']"> +Create New Warehouse</a>
+<div class="headline" *ngIf="userObj">
+  <p class="first"><span>H</span>ELLO</p>
+  <p class="third"></p>
+  <p class="fourth"><span></span>{{ userObj.username }}</p>
 </div>
 
+<!-- <p>Please fill in your profile in order to be able to publish your warehouse</p> -->
+
+<!-- <div *ngIf="userObj && userObj.role==='OWNER' && modifiedProfile">
+  <a [routerLink]="['/profile', userObj._id, 'create-warehouse']"> +Create New Warehouse</a>
+</div> -->
+
 <div class="wrapper">
-  <div *ngIf="userObj">
+
+  <div class="img-wrapper" *ngIf="userObj">
     <img [src]="imageBaseUrl + userObj.picture" />
+    <div id="upload" *ngIf="userObj">
+      <app-upload [user]="userObj" (success)="handleSuccess($event)"></app-upload>
+    </div>
   </div>
   
   <div *ngIf="userObj">
-    <p> Username: {{ userObj.username }} </p>
-    <p> Name: {{ userObj.companyName }} </p>
-    <p> Company Address: {{ userObj.companyAddress }} </p>
-    <p> Email: {{ userObj.email }}</p>
-    <p> Description: {{ userObj.description }}</p>
+    <h4>DETAILS</h4>
+    <div id="details">
+      <p> NAME: {{ userObj.companyName }} </p>
+      <p> COMPANY ADDRESS: {{ userObj.companyAddress }} </p>
+      <p> E-MAIL: {{ userObj.email }}</p>
+      <p> DESCRIPTION: {{ userObj.description }}</p>
+      <button (click)="edit()">Edit profile</button>
+    </div>
+    <div id="change" *ngIf="userObj">
+      <app-profile-form-edit [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
+    </div>
   </div>
+  
 </div>
 
-<div *ngIf="userObj">
-  <app-upload [user]="userObj" (success)="handleSuccess($event)"></app-upload>
-</div>
 
-<div *ngIf="userObj">
-  <app-profile-form-edit [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
-</div>
 
 

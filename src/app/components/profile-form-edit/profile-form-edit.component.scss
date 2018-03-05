@@ -2,20 +2,14 @@
 
 
 .form-container {
-  margin: 0 10% 10% 10%;
-  padding: 2%;
   @extend %form;
   input {
     background-color: $lightgrey;
+    margin: 5% 0;
   }
-}
-
-h3 {
-  margin: 5% 2%;
 }
 
 button {
   @extend %btn;
-  display: block;
 }
 

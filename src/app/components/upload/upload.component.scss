@@ -1,6 +1,23 @@
 @import '../../../styles.scss';
 
+input[type=file] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
 form {
-  margin-top: 100px;
+  text-transform: uppercase;
+  label {
+    cursor: pointer;
+    margin-right: 20px; 
+  }
+}
+
+button {
+  @extend %btn;
 }
 

@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && signUpPasswordField.errors}">
-        <input class="auth-input" placeholder="Password" type="text" name="password" [(ngModel)]="password" #signUpPasswordField="ngModel" required minlength="6" [disabled]="processing"/>
+        <input class="auth-input" placeholder="Password" type="password" name="password" [(ngModel)]="password" #signUpPasswordField="ngModel" required minlength="6" [disabled]="processing"/>
         <div *ngIf="feedbackEnabled && signUpPasswordField.errors">
           <p *ngIf="signUpPasswordField.errors.required" class="validation">Password required</p>
           <p *ngIf="signUpPasswordField.errors.minlength" class="validation">Password is too short</p>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="field submit">
-        <input type="submit" [disabled]="processing" value="Signup">
+        <button type="submit" [disabled]="processing">Signup</button>
         <div *ngIf="feedbackEnabled && form.invalid">
           <p class="validation">there are errors in the form, please review the fields</p>
         </div>

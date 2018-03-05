@@ -1,5 +1,14 @@
 @import '../../../styles.scss';
 
+.headline {
+  @extend %headline;
+  margin-bottom: 70px;
+}
+
+.fourth {
+  text-transform: uppercase;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 100%;
@@ -9,6 +18,22 @@
   @include desktop {
     grid-template-columns: 50% 50%;
   }
-  margin-top: 150px;
 }
 
+.img-wrapper {
+  justify-self: center;
+  img {
+    box-shadow: $box-shadow;
+    max-height: 50vw;
+  }
+}
+
+button {
+  @extend %btn;
+  align-self: flex-end;
+}
+
+#change,
+#upload {
+  display: none;
+}

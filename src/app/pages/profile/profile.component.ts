@@ -40,7 +40,9 @@ export class ProfileComponent implements OnInit {
       this.profileService.changeProfile(event)
         .then(() => {
           this.modifiedProfile = true;
-          console.log("Profile changed")
+          document.getElementById('details').setAttribute("style", "display: inherit;");
+          document.getElementById('change').setAttribute("style", "display: none;");
+          document.getElementById('upload').setAttribute("style", "display: none;");
         })
         .catch((err) => {
           this.error = err.error.error;
@@ -52,6 +54,12 @@ export class ProfileComponent implements OnInit {
 
   handleSuccess(newImage) {
     this.userObj.picture = newImage;
+  }
+
+  edit() {
+    document.getElementById('details').setAttribute("style", "display: none;");
+    document.getElementById('change').setAttribute("style", "display: inherit;");
+    document.getElementById('upload').setAttribute("style", "display: inherit;");
   }
 
 }

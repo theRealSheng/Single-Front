@@ -1,6 +1,5 @@
 
 <div class="form-container">
-  <h3>Change profile information</h3>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyNameField.errors}">
       <input placeholder="Company name" type="text" name="companyName" [(ngModel)]="user.companyName" #companyNameField="ngModel" required [disabled]="processing"/>
