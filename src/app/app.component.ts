@@ -35,24 +35,24 @@ export class AppComponent implements OnInit {
   }
 
   setTab() {
-    if (this.tabElement.nativeElement) {
+    
       setTimeout(( )=> {
-      const url = this.location.path();
-      if (url === '') {
-        this.tabElement.nativeElement.children.r1.checked = true;
-        }
-        if(url.includes('warehouses')) {
-          this.tabElement.nativeElement.children.r2.checked = true;
-        }
-        if(url.includes('dashboard')) {
-          this.tabElement.nativeElement.children.r3.checked = true;
-        }
-        if(url.includes('profile')) {
-          this.tabElement.nativeElement.children.r4.checked = true;
-        }
-      }, 1000)
-    }
-
+        if (this.tabElement) {
+           const url = this.location.path();
+          if (url === '') {
+          this.tabElement.nativeElement.children.r1.checked = true;
+          }
+          if(url.includes('warehouses')) {
+            this.tabElement.nativeElement.children.r2.checked = true;
+          }
+          if(url.includes('dashboard')) {
+            this.tabElement.nativeElement.children.r3.checked = true;
+          }
+          if(url.includes('profile')) {
+            this.tabElement.nativeElement.children.r4.checked = true;
+          }
+      }
+    }, 1000)
   }
 
   login() {
