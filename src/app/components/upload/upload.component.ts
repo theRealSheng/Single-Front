@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FileUploader } from "ng2-file-upload";
+import { FileUploader, FileSelectDirective } from "ng2-file-upload";
+
 
 @Component({
   selector: 'app-upload',
