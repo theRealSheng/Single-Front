@@ -1,0 +1,31 @@
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 33% 33% 33%; 
+}
+
+.logos {
+  width: 20vw;
+}
+
+nav {
+  background-color: #092b5f;
+}
+
+.parallax-container {
+  height: 350px;
+}
+
+.gradient-right {
+  background: linear-gradient(to right, #e5e9f4 , white);
+}
+
+.gradient-left {
+  background: linear-gradient(to left, #e5e9f4 , white);
+  text-align: right;
+}
+
+footer.page-footer {
+  background-color: #092b5f;
+  margin-top: 0;
+}
