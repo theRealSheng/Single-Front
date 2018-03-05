@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://simple-linear.herokuapp.com'
+  apiUrl: 'https://simple-linear.herokuapp.com'
 };
