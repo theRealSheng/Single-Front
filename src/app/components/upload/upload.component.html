@@ -2,12 +2,8 @@
 
 <form>
   <input type="text" [(ngModel)]="name" name="name" required />
-<<<<<<< HEAD
-  <input type="file" name="file" ng2FileSelect [uploader]="uploader" id="file-input"/>
-=======
   <input type="file" name="file" ng2FileSelect [(ngModel)]="uploader" />
->>>>>>> 1fc702e945521fa72c332d3f98684648ed9a84f5
-  <button (click)="submit()"> submit </button>
+  <button (click)="submit()"> Submit </button>
 </form>
 
 <div *ngIf="error" class="error">

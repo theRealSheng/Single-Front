@@ -21,16 +21,26 @@ export class AuthComponent implements OnInit {
   }
 
   handleSubmit(event) {
-    console.log(event);
     this.authService.login(event)
     .then((result) => {
       this.router.navigate(['/homepage'])
     })
     .catch((err) => {
-      this.error = err.error.error; // :slightly_smiling_face:
+      this.error = err.error.error; 
       this.processing = false;
       this.feedbackEnabled = false;
     });
+  }
 
+  handleSubmitSignup(event) {
+    this.authService.signup(event)
+    .then((result) => {
+      this.router.navigate(['/homepage'])
+    })
+    .catch((err) => {
+      this.error = err.error.error; 
+      this.processing = false;
+      this.feedbackEnabled = false;
+    });
   }
 }

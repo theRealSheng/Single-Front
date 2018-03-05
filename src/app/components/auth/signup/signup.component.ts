@@ -1,8 +1,5 @@
 
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-
-import { AuthService } from '../../../services/auth.service';
+import { Component, OnInit, Output, Input,  EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-signup',
@@ -11,14 +8,17 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
-  feedbackEnabled = false;
-  error = null;
-  processing = false;
+  @Output() submitSignupForm =  new EventEmitter<Object>();
+
+  @Input() feedbackEnabled;
+  @Input() error;
+  @Input() processing;
+
   username: String;
   password: String;
   role: String;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
@@ -27,23 +27,12 @@ export class SignupComponent implements OnInit {
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid) {
-      this.processing = true;
       const data = {
         username: this.username,
         password: this.password,
         role: this.role
       }
-      this.authService.signup(data)
-        .then((result) => {
-          this.router.navigate(['/homepage'])
-          //     // ... navigate with this.router.navigate(['...'])
-        })
-        .catch((err) => {
-          this.error = err.error.error; 
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
-
+      this.submitSignupForm.emit(data);
     };
   }
 }
