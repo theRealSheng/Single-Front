@@ -12,7 +12,8 @@ nav {
 
 .main-nav {
   display: grid;
-  grid-template-columns: 10% 60% 30%;
+  grid-template-columns: 10% 70% 20%;
+  text-transform: uppercase;
 }
 
 .logo{
@@ -38,19 +39,19 @@ nav {
 }
 
 [type=radio],#r1:checked ~ #slider {
-  transform: translate(-415px, 10px);
+  transform: translate(-485px, 10px);
 }
 
 [type=radio],#r2:checked ~ #slider {
-  transform: translate(-300px, 10px);
+  transform: translate(-350px, 10px);
 }
 
 [type=radio],#r3:checked ~ #slider {
-  transform: translate(-193px, 10px);
+  transform: translate(-230px, 10px);
 }
 
 [type=radio],#r4:checked ~ #slider {
-  transform: translate(-94px, 10px);
+  transform: translate(-112px, 10px);
 }
 
 label, input {
@@ -67,7 +68,7 @@ label:focus {
 
 #slider {
   display: inline-block;
-  width: 90px;
+  width: 110px;
   border-bottom: 3px solid $red;
   transition: transform 0.5s;
 }

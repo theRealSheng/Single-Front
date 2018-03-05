@@ -4,3 +4,9 @@
   @extend %headline;
 }
 
+button {
+  @extend %btn;
+  display: block;
+  margin-bottom: 40px;
+}
+

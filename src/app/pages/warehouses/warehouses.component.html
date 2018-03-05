@@ -7,13 +7,13 @@
 
 
 <div *ngIf="userObj && userObj.role==='OWNER'">
-  <div *ngIf="!userObj.companyName || !userObj.email || !userObj.companyAddress">
-    <a [routerLink]="['/profile', userObj._id]"> ++Publish Your Warehouse</a>
-  </div>
-
-  <div *ngIf="userObj.companyName && userObj.email  && userObj.companyAddress">
-    <a [routerLink]="['/profile', userObj._id, 'create-warehouse']"> +Publish Your Warehouse</a>
-  </div>
+  <button *ngIf="!userObj.companyName || !userObj.email || !userObj.companyAddress">
+    <a [routerLink]="['/profile', userObj._id]">Add new Warehouse</a>
+  </button>
+  
+  <button *ngIf="userObj.companyName && userObj.email  && userObj.companyAddress">
+    <a [routerLink]="['/profile', userObj._id, 'create-warehouse']">Add new Warehouse</a>
+  </button>
 </div>
 
 
