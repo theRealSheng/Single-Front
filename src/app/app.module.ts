@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FileSelectDirective } from "ng2-file-upload";
 
 // Services
 
@@ -73,7 +72,6 @@ const routes: Routes = [
     BookingFormComponent,
     CreateWarehousePageComponent,
     CreateWarehouseFormComponent,
-    FileSelectDirective,
     UploadComponent,
     GraphChartComponent
   ],

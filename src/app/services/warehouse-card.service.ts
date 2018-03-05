@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
-
+import { environment } from '../../environments/environment';
+const apiUrl = environment.apiUrl + '/warehouses';
 
 @Injectable()
 export class WarehouseCardService {
-
-  API_URL: string = 'http://localhost:3000'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,7 +14,7 @@ export class WarehouseCardService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/warehouses`, options)
+    return this.httpClient.get(`${apiUrl}`, options)
       .toPromise();
   }
 
@@ -23,7 +22,7 @@ export class WarehouseCardService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/warehouses/${id}`, options)
+    return this.httpClient.get(`${apiUrl}/${id}`, options)
       .toPromise();
   }
 
@@ -31,7 +30,7 @@ export class WarehouseCardService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/warehouses`, data, options)
+    return this.httpClient.post(`${apiUrl}`, data, options)
       .toPromise();
   }
 }
