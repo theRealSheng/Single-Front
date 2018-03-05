@@ -40,6 +40,7 @@ import { WarehouseDetailComponent } from './components/warehouse-detail/warehous
 import { BookingFormComponent } from './components/booking-form/booking-form.component';
 import { CreateWarehouseFormComponent } from './components/create-warehouse-form/create-warehouse-form.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { GraphChartComponent } from './components/graphChart/graphChart.component';
 
 
 const routes: Routes = [
@@ -73,7 +74,8 @@ const routes: Routes = [
     CreateWarehousePageComponent,
     CreateWarehouseFormComponent,
     FileSelectDirective,
-    UploadComponent
+    UploadComponent,
+    GraphChartComponent
   ],
   imports: [
     BrowserModule,
