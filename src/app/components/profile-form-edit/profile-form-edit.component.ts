@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProfileFormEditComponent implements OnInit {
 
-  @Output() submitProfile = new EventEmitter<string>();
+  @Output() submitProfile = new EventEmitter<any>();
   @Input() user: any;
 
   @Input() feedbackEnabled = false;

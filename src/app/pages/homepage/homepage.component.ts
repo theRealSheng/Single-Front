@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+// import * as chart from '../../../../node_modules/chart.js'
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',

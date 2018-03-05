@@ -3,13 +3,13 @@
 <form>
   <input type="text" [(ngModel)]="name" name="name" required />
   <input type="file" name="file" ng2FileSelect [(ngModel)]="uploader" />
-  <button (click)="submit()"> submit </button>
+  <button (click)="submit()"> Submit </button>
 </form>
 
 <div *ngIf="error" class="error">
-{{error}}
+xxx{{error}}xxx
 </div>
 
-<div *ngIf="success" class="success">
-{{success}}
+<div *ngIf="message" class="success">
+xxx{{message}}xxxx
 </div>

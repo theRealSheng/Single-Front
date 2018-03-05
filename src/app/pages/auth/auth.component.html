@@ -5,6 +5,6 @@
 </div>
   
 
-<app-login></app-login>
+<app-login [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitLoginForm)="handleSubmit($event)"></app-login>
 
-<app-signup></app-signup>
+<app-signup [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitSignupForm)="handleSubmitSignup($event)"></app-signup>

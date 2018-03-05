@@ -18,14 +18,15 @@ export class UploadComponent implements OnInit {
   error: string;
   name: string;
   picture: any;
+  message: string;
 
   constructor() { }
 
   ngOnInit() {
     this.uploader.onSuccessItem = (item, response) => {
-      this.success = 'Upload success!';
+      this.message = 'Upload success!';
       const newImage = JSON.parse(response).picture;
-      this.success.emit(newImage)
+      this.success.emit(newImage);
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
