@@ -11,6 +11,7 @@ export class GraphChartComponent implements OnInit {
 
   chart: any;
   sumDates: string;
+  canvas: any;
 
   constructor() { }
 
