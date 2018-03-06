@@ -1,11 +1,5 @@
 @import '../../../styles.scss';
 
-.background {
-  background-image: url("https://images.unsplash.com/photo-1518829154205-6b1fdd0c0f0c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=07b10ef344ba308a1882690dfc584155&auto=format&fit=crop&w=1400&q=80");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 .headline {
   @extend %headline;
 }
@@ -20,9 +14,18 @@ h2 {
   }
 }
 
+.parallax {
+  background-image: url("https://images.unsplash.com/photo-1518829154205-6b1fdd0c0f0c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=07b10ef344ba308a1882690dfc584155&auto=format&fit=crop&w=1400&q=80");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .welcome {
   clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  background-color: $transparent;
+  background-color: white;
   text-align: center;
   padding: 20px 20px 80px 20px;
   @include tablet {
@@ -31,21 +34,23 @@ h2 {
   @include desktop {
     padding: 20px 80px 80px 80px;
   }
-  margin-bottom: 120px;
+  margin-bottom: 200px;
 }
 
 .why-us {
-  clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
   text-align: center;
-  background-color: $transparent;
+  background-color: white;
+  clip-path: polygon(0 0%, 100% 5%, 100% 95%, 0 100%);
   padding: 30px 20px 90px 20px;
   @include tablet {
+    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
     padding: 0 50px 60px 50px;
   }
   @include desktop {
+    clip-path: polygon(0 0%, 100% 10%, 100% 90%, 0 100%);
     padding: 0 50px 60px 50px;
   }
-  margin-bottom: 180px;
+  margin-top: -60px;
 }
 
 .content-grid {
@@ -80,8 +85,23 @@ h2 {
   border-bottom: 2px solid $blue;
 }
 
+.parallax1 {
+  background-image: url("https://images.unsplash.com/photo-1519675859442-f3bb5398b12a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=629437bc173e92e66e4380fab0080b0a&auto=format&fit=crop&w=1500&q=80");
+  height: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hidden {
+  color: rgba(0,0,0,0);
+  margin-bottom: 270px;
+  margin-top: -60px;
+}
+
 .client {
-  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 3%, 100% 100%, 0 100%);
   @include tablet {
     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
   }
@@ -89,7 +109,8 @@ h2 {
     clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
   }
   text-align: center;
-  background-color: $transparent;
+  background-color: white;
+  margin-top: -60px;
   padding: 0 50px 60px 50px;
 }
 
