@@ -1,7 +1,12 @@
 @import '../../../../styles.scss';
 
 .tab {
-	margin: 0 10% 10% 10%;
+  @include tablet {
+    margin: 0 10% 10% 10%;
+  }
+  @include desktop {
+    margin: 0 10% 10% 10%;
+  }
 	overflow: hidden;
 }
 
