@@ -1,31 +1,85 @@
+@import '../../../styles.scss';
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 33% 33% 33%; 
+.background {
+  background-image: url("https://images.unsplash.com/photo-1518829154205-6b1fdd0c0f0c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=07b10ef344ba308a1882690dfc584155&auto=format&fit=crop&w=1400&q=80");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.logos {
-  width: 20vw;
+.headline {
+  @extend %headline;
 }
 
-nav {
-  background-color: #092b5f;
+.welcome {
+  background-color: #ffffffe8;
+  padding: 20px 80px 80px 80px;
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  margin-bottom: 120px;
 }
 
-.parallax-container {
-  height: 350px;
-}
-
-.gradient-right {
-  background: linear-gradient(to right, #e5e9f4 , white);
-}
-
-.gradient-left {
-  background: linear-gradient(to left, #e5e9f4 , white);
+.why-us {
   text-align: right;
+  background-color: #ffffffe8;
+  padding: 0 50px 60px 50px;
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+  margin-bottom: 180px;
 }
 
-footer.page-footer {
-  background-color: #092b5f;
-  margin-top: 0;
+.img-grid {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-column-gap: 2%;
+  img {
+    width: 40%;
+  }
+  margin-top: 80px;
 }
+
+.content-grid {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  grid-column-gap: 2%;
+}
+
+.benefits {
+  text-align: center;
+  border-bottom: 2px solid $blue;
+  text-transform: uppercase;
+}
+
+.client {
+  background-color: #ffffffe8;
+  padding: 0 50px 60px 50px;
+  clip-path: polygon(0 0, 100% 10%, 100% 100%, 0 100%);
+}
+
+.client-images {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 19% 19% 19% 19% 19%;
+  grid-column-gap: 2%;
+  img {
+    width: 80%;
+  }
+  margin: 30px 0 0 0;
+}
+
+.img-wrapper {
+  align-self: center;
+}
+
+.client-content {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 19% 19% 19% 19% 19%;
+  grid-column-gap: 2%;
+}
+
+.quotes {
+  font-size: 14px;
+}
+
+
+
