@@ -8,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WarehouseListComponent implements OnInit {
 
   @Input() warehouses: any;
-
   constructor() { }
 
   ngOnInit() {

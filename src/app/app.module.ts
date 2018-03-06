@@ -10,6 +10,7 @@ import { AuthService } from './services/auth.service';
 import { WarehouseCardService } from './services/warehouse-card.service';
 import { ProfileService } from './services/profile.service';
 import { BookingService } from './services/booking.service';
+import { SummaryApiService } from './services/summary-api.service';
 
 // Guards
 
@@ -89,7 +90,8 @@ const routes: Routes = [
     RequireUserGuardService,
     WarehouseCardService,
     ProfileService,
-    BookingService
+    BookingService,
+    SummaryApiService
    ],
   bootstrap: [AppComponent]
 })

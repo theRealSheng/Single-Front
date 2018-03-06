@@ -5,7 +5,7 @@
   <li *ngFor="let warehouse of warehouses">
     <div class="example-1 card">
       <div class="wrapper">
-        <span class="price">Price{{ warehouse.pricing }}</span>
+        <span class="price">Storage: {{ warehouse.pricing[0].storage }} Euros / CBM / Month</span>
         <div class="info">
           <div class="content">
             <p class="address">Address{{ warehouse.warehouseAddress }}</p>

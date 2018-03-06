@@ -3,6 +3,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
+
 const apiUrl = environment.apiUrl + '/dashboard';
 
 @Injectable()
