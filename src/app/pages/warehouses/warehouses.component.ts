@@ -30,7 +30,6 @@ export class WarehousesComponent implements OnInit {
       return this.profileService.getUser(this.user._id) })
     .then(user => {
       this.userObj = user;
-      console.log(this.userObj);
     })
   }
 

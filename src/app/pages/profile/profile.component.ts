@@ -12,9 +12,9 @@ export class ProfileComponent implements OnInit {
   @Input() user: any;
   @Input() newImage: any;
   
-  feedbackEnabled = false;
+  feedbackEnabled; //remove
+  processing; //remove 
   error = null;
-  processing = false;
   userId: string;
   userObj: any;
   picture: any;
@@ -37,8 +37,8 @@ export class ProfileComponent implements OnInit {
   }
 
   handleSubmitProfile(event) {
-      this.profileService.changeProfile(event)
-        .then(() => {
+    this.profileService.changeProfile(event)
+    .then(() => {
           this.modifiedProfile = true;
           document.getElementById('details').setAttribute("style", "display: inherit;");
           document.getElementById('change').setAttribute("style", "display: none;");
@@ -46,8 +46,6 @@ export class ProfileComponent implements OnInit {
         })
         .catch((err) => {
           this.error = err.error.error;
-          this.processing = false;
-          this.feedbackEnabled = false;
         });
     };
 

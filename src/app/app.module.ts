@@ -43,7 +43,7 @@ import { GraphChartComponent } from './components/graphChart/graphChart.componen
 
 
 const routes: Routes = [
-  { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
+  { path: '', component: GraphChartComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
