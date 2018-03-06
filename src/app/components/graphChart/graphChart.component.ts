@@ -10,30 +10,15 @@ import * as Chart from '../../../../node_modules/chart.js/dist/Chart.bundle.min.
 export class GraphChartComponent implements OnInit {
 
   chart: any;
-  sumDates: string;
   canvas: any;
 
   constructor() { }
 
   ngOnInit() {
-    
-    let data = {
-      timeFrame: 2.13,
-      sales: 15,
-      cost: {
-        handling:1.5,
-        courier: 4,
-        storage: 1,
-      }
-    }
 
+      this.createCanvas();
 
-      const canv: any = document.createElement('canvas');
-      canv.height = 300;
-      canv.width = 300;
-      document.getElementById('canvas').appendChild(canv);
-
-      const context = canv.getContext('2d');
+      const context = this.canvas.getContext('2d');
 
       this.chart = new Chart(context, {
         type: 'bar',
@@ -75,4 +60,11 @@ export class GraphChartComponent implements OnInit {
 
   }
 
+  private createCanvas() {
+
+    this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('id', 'canvas');
+    document.body.appendChild(this.canvas);
+    
+  }
 }
