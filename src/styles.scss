@@ -59,31 +59,72 @@ $desktop-width: 1200px;
 // headline
 %headline {
   display: grid;
-  grid-template-columns: 50% 50%;
-  font-size: 40px;
+  font-size: 35px;
+  grid-template-columns: 100%;
+  margin: 90px auto 30px auto;
+  @include tablet {
+    font-size: 40px;
+    grid-template-columns: 50% 50%;
+    margin: 100px auto 40px auto;
+  }
+  @include desktop {
+    font-size: 40px;
+    grid-template-columns: 50% 50%;
+    margin: 100px auto 40px auto;
+  }
   letter-spacing: 0.2em;
-  margin: 100px auto 40px auto;
   span {
-    font-size: 55px;
+    font-size: 45px;
+    @include tablet {
+      font-size: 55px;
+    }
+    @include desktop {
+      font-size: 55px;
+    }
   }
   .first {
     grid-column-start: 1;
-    border-right: 4px solid $red;
+    border-bottom: 4px solid $red;
+    justify-self: center;
+    @include tablet {
+      border-bottom: none;
+      border-right: 4px solid $red;
+      justify-self: end;
+    }
+    @include desktop {
+      border-bottom: none;
+      border-right: 4px solid $red;
+      justify-self: end;
+    }
     margin: 0;
-    justify-self: end;
   }
   .third {
-    grid-column-start: 1;
-    grid-row-start: 2;
-    border-right: 4px solid $red;
-    margin: 0;
+    display: none;
+    @include tablet {
+      grid-column-start: 1;
+      grid-row-start: 2;
+      border-right: 4px solid $red;
+      margin: 0;
+    }
+    @include desktop {
+      grid-column-start: 1;
+      grid-row-start: 2;
+      border-right: 4px solid $red;
+      margin: 0;
+    }
   }
   .fourth {
-    grid-column-start: 2;
+    margin: 0 0 0 5px;
+    justify-self: center;
+    @include tablet {
+      justify-self: start;
+      grid-column-start: 2;
+    }
     @include desktop {
+      justify-self: start;
+      grid-column-start: 2;
       grid-row-start: 2;
     }
-    margin: 0 0 0 5px;
   }
 }
 
@@ -113,7 +154,13 @@ $desktop-width: 1200px;
   color: grey;
   margin: 5% 2%;
   display: grid;
-  grid-template-columns: 20% auto;
+  grid-template-columns: 40% auto;
+  @include tablet {
+    grid-template-columns: 20% auto;
+  }
+  @include desktop {
+    grid-template-columns: 10% auto;
+  }
   label {
     padding: 0;
   }
@@ -145,7 +192,7 @@ body, ul {
 
 /* ---- typography ---- */
 
-h1, h2, h3, h4, p, li, a, label, button, span, select, input {
+h1, h2, h3, h4, h5, p, li, a, label, button, span, select, input {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -161,17 +208,27 @@ h2 {
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 20px;
+  @include tablet {
+    font-size: 30px;
+  }
+  @include desktop {
+    font-size: 30px;
+  }
   border-bottom: 4px solid $blue;
   letter-spacing: 0.1em;
 }
 
 h4 {
-  display: inline-block;
-  margin: 0 0 15px 0;
-  font-size: 25px;
-  border-bottom: 4px solid $blue;
+  font-size: 20px;
   letter-spacing: 0.1em;
+}
+
+h5 {
+  display: inline-block;
+  font-size: 20px;
+  border-bottom: 4px solid $blue;
+  margin-top: 0;
 }
 
 a {

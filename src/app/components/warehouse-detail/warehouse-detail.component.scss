@@ -1,56 +1,45 @@
 @import '../../../styles.scss';
 
-.warehouse-details {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  margin-top: 100px;
-}
-
-.img-upload {
-  justify-self: center;
-}
-
-.info {
-  justify-self: start;
-  padding: 50px;
-}
-
-.img-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 18fr 4fr;
-  grid-template-rows: 1fr 1fr 7fr 1fr;
-}
-
-.img-box {
-  grid-column-start: 3;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 5;
-  width: 100%;
-  img {
-    width: 100%;
+.headline {
+  @extend %headline;
+  @include tablet {
+    margin-bottom: 70px;
+  }
+  @include desktop {
+    margin-bottom: 70px;
   }
 }
 
-.red {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 1;
-  grid-row-end: 4;
-  margin: 0;
-  border-right: 4px solid $red;
+.warehouse-details {
+  display: grid;
+  grid-template-columns: 100%;
+  text-align: center;
+  @include tablet {
+    grid-template-columns: 50% 50%;
+    text-align: left;
+  }
+  @include desktop {
+    grid-template-columns: 50% 50%;
+    text-align: left;
+  }
+  padding: 2%;
 }
 
-.blue {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  padding: 0;
-  border-bottom: 4px solid $blue;
+.img-wrapper {
+  justify-self: center;
+  img {
+    box-shadow: $box-shadow;
+    max-height: 50vw;
+    margin-bottom: 20px;
+    @include tablet {
+      max-width: 45vw;
+    }
+    @include desktop {
+      max-width: 45vw;
+    }
+  }
 }
 
-.btn {
+button {
   @extend %btn;
-  display: block;
 }

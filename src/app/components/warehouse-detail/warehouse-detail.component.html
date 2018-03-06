@@ -1,23 +1,23 @@
-<div *ngIf="!warehouse">
-  loading...
+
+<div class="headline" *ngIf="warehouse">
+  <p class="first"><span>W</span>AREHOUSE</p>
+  <p class="third"></p>
+  <p class="fourth"><span>D</span>ETAILS</p>
 </div>
 
 <div class="warehouse-details" *ngIf="warehouse">
-  <div class="img-upload">
-    <div class="img-grid">
-      <div class="img-box">
-        <img src="http://via.placeholder.com/450x300">
-      </div>
-      <p class="red"></p>
-      <p class="blue"></p>
-    </div>
+
+  <div class="img-wrapper">
+    <img src="http://via.placeholder.com/450x300">
   </div>
-  <div class="info">
-    <h3> {{ warehouse.companyName }} </h3>
-    <p> {{ warehouse.warehouseAddress }} </p>
-    <p> {{ warehouse.pricing }} </p>
-    <p> {{ warehouse.description }} </p>
-    <p> {{ warehouse.specialNotes }} </p>
-    <button class="btn"><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
+
+  <div>
+    <h5>{{ warehouse.companyName }}</h5>
+    <p>WAREHOUSE ADDRESS: {{ warehouse.warehouseAddress }} </p>
+    <p>PRICING: {{ warehouse.pricing }} </p>
+    <p>DESCRIPTION: {{ warehouse.description }} </p>
+    <p>SPECIAL NOTES: {{ warehouse.specialNotes }} </p>
+    <button (click)="edit()">Edit profile</button>
+    <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>
 </div>
