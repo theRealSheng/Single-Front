@@ -15,10 +15,17 @@
       </div>
     </div>
    
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && websiteField.errors}">
+      <input placeholder="Website" type="text" name="website" [(ngModel)]="user.website" #websiteField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && websiteField.errors">
+        <p *ngIf="websiteField.errors.required" class="validation">Website required</p>
+      </div>
+    </div>
+   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
       <input placeholder="E-Mail" type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && emailField.errors">
-        <p *ngIf="emailField.errors.required" class="validation">Company address required</p>
+        <p *ngIf="emailField.errors.required" class="validation">E-Mail required</p>
       </div>
     </div>
   

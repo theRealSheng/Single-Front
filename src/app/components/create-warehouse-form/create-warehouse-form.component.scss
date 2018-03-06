@@ -1,5 +1,9 @@
 @import '../../../styles.scss';
 
+h5 {
+  margin: 30px 0 10px 0;
+}
+
 .form-container {
   margin: 0;
   @include tablet {
@@ -24,19 +28,12 @@
   display: grid;
   grid-template-columns: 100%;
   @include tablet {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
   }
   @include desktop {
-    grid-template-columns: 50% 50%;
-  } 
-}
-
-.field-right {
-  @include tablet {
-    margin-left: 10px;
-  }
-  @include desktop {
-    margin-left: 10px;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
   } 
 }
 
@@ -53,9 +50,14 @@ textarea {
   margin: 0 auto 0 5px;
 }
 
+input[type=number] {
+  line-height: 35px;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
+}
+
 label {
   display: block;
-  text-transform: uppercase;
   margin-top: 30px;
 }
 

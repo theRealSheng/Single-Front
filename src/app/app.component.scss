@@ -14,7 +14,7 @@ nav {
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   @include tablet {
-    grid-template-columns: 10% 70% 20%;
+    grid-template-columns: 10% 80% 10%;
   }
   @include desktop {
     grid-template-columns: 10% 70% 20%;
