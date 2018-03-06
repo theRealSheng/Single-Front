@@ -28,11 +28,12 @@ export class GraphChartComponent implements OnInit {
     }
 
 
-      const canvas: any = document.createElement('canvas');
-      canvas.height = 500;
-      canvas.width = 500;
-      document.body.appendChild(canvas);
-      const context = canvas.getContext('2d');
+      const canv: any = document.createElement('canvas');
+      canv.height = 300;
+      canv.width = 300;
+      document.getElementById('canvas').appendChild(canv);
+
+      const context = canv.getContext('2d');
 
       this.chart = new Chart(context, {
         type: 'bar',
