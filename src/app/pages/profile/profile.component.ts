@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
 import { ActivatedRoute } from '@angular/router';
+import { BookingService } from '../../services/booking.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,10 +21,12 @@ export class ProfileComponent implements OnInit {
   picture: any;
   imageBaseUrl = 'http://localhost:3000';
   modifiedProfile: boolean = false;
+  bookings: any;
 
   constructor(
     private activatedRoute: ActivatedRoute, 
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private bookingService: BookingService
   ) { }
 
   ngOnInit() {
@@ -33,7 +36,7 @@ export class ProfileComponent implements OnInit {
         this.userId = params['id']
         this.profileService.getUser(this.userId)
           .then(user => this.userObj = user);
-      });
+      })
   }
 
   handleSubmitProfile(event) {

@@ -16,8 +16,8 @@ export class GraphChartComponent implements OnInit {
   onlineSales: any;
   userId: string;
 
-  dates: Array<any>;
-  objSales: any;
+  dates: Array<any>; // 
+  objSales: any; // All data from sales onlines
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -34,14 +34,21 @@ export class GraphChartComponent implements OnInit {
           })
           .then(()=>{
             this.objSales = {};
-
             this.dates = [];
 
+            // Setting all sales revenue per date
             this.onlineSales.forEach((sale) => {
               this.dates.push(sale.salesDate);
-              if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate] = sale.salesPrice;
+              if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0,10)] = sale.salesPrice;
               else
-                this.objSales[sale.salesDate] += sale.salesPrice;
+                this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
+            })
+
+            // Setting all sales per item
+            this.onlineSales.forEach((sale) => {
+              if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
+              else
+                this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
             })
             
             const placeholder = document.getElementById('cvs')

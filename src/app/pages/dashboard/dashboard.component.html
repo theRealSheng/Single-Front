@@ -2,5 +2,20 @@
   dashboard works!
 </p>
 
-<app-graphChart (lineSales)="onlineSales"></app-graphChart>
+<ul *ngIf="bookings">
+  <li *ngFor="let booking of bookings">
+    <p>
+      {{ booking.productName }}
+    </p>
+    <p>
+     {{ booking.dimsWeight }}
+    </p>
+    <p>
+     {{ booking.packCargo }}
+    </p>
+  </li>
+
+</ul>
+
+<app-graphChart></app-graphChart>
 
