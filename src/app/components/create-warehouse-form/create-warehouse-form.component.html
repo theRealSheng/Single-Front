@@ -38,7 +38,7 @@
       <p id="storage">STORAGE</p>
       <div class="storage">
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && storageField.errors}">
-          <input type="number" name="storage" [(ngModel)]="warehouse.pricing[0]" #storageField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="storage" [(ngModel)]="pricing.storage" #storageField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && storageField.errors">
             <p *ngIf="storageField.errors.required" class="validation">Storage fee required</p>
           </div>
@@ -55,19 +55,19 @@
       <p id="handling">HANDLING</p>
       <div class="handling">
         <div class="handling1" [ngClass]="{'has-error': feedbackEnabled && handlingSmallField.errors}">
-          <input type="number" name="handlingSmall" [(ngModel)]="warehouse.pricing[1][0]" #handlingSmallField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="handlingSmall" [(ngModel)]="pricing.handling[0]" #handlingSmallField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && handlingSmallField.errors">
             <p *ngIf="handlingSmallField.errors.required" class="validation">Handling fee required</p>
           </div>
         </div>
         <div class="handling2" [ngClass]="{'has-error': feedbackEnabled && handlingMediumField.errors}">
-          <input type="number" name="handlingMedium" [(ngModel)]="warehouse.pricing[1][1]" #handlingMediumField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="handlingMedium" [(ngModel)]="pricing.handling[1]" #handlingMediumField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && handlingMediumField.errors">
             <p *ngIf="handlingMediumField.errors.required" class="validation">Handling fee required</p>
           </div>
         </div>
         <div class="handling3" [ngClass]="{'has-error': feedbackEnabled && handlingLargeField.errors}">
-          <input type="number" name="handlingLarge" [(ngModel)]="warehouse.pricing[1][2]" #handlingLargeField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="handlingLarge" [(ngModel)]="pricing.handling[2]" #handlingLargeField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && handlingLargeField.errors">
             <p *ngIf="handlingLargeField.errors.required" class="validation">Handling fee required</p>
           </div>
@@ -77,19 +77,19 @@
       <p id="packaging">PACKAGING</p>
       <div class="packaging">
         <div class="packaging1" [ngClass]="{'has-error': feedbackEnabled && packagingSmallField.errors}">
-          <input type="number" name="packagingSmall" [(ngModel)]="warehouse.pricing[2][0]" #packagingSmallField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="packagingSmall" [(ngModel)]="pricing.packaging[0]" #packagingSmallField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && packagingSmallField.errors">
             <p *ngIf="packagingSmallField.errors.required" class="validation">Packaging fee required</p>
           </div>
         </div>
         <div class="packaging2" [ngClass]="{'has-error': feedbackEnabled && packagingMediumField.errors}">
-          <input type="number" name="packagingMedium" [(ngModel)]="warehouse.pricing[2][1]" #packagingMediumField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="packagingMedium" [(ngModel)]="pricing.packaging[1]" #packagingMediumField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && packagingMediumField.errors">
             <p *ngIf="packagingMediumField.errors.required" class="validation">Packaging fee required</p>
           </div>
         </div>
         <div class="packaging3" [ngClass]="{'has-error': feedbackEnabled && packagingLargeField.errors}">
-          <input type="number" name="packagingLarge" [(ngModel)]="warehouse.pricing[2][2]" #packagingLargeField="ngModel" required [disabled]="processing"/>
+          <input type="number" name="packagingLarge" [(ngModel)]="pricing.packaging[2]" #packagingLargeField="ngModel" required [disabled]="processing"/>
           <div *ngIf="feedbackEnabled && packagingLargeField.errors">
             <p *ngIf="packagingLargeField.errors.required" class="validation">Packaging fee required</p>
           </div>
@@ -103,15 +103,6 @@
         <p class="description max3">30cm x 40cm x 50cm | 5kg</p>
       </div>
     </div>
-    <!-- <div class="field" [ngClass]="{'has-error': feedbackEnabled && pricingField.errors}">
-      <label for="pricing">Pricing</label>
-      <textarea cols="40" rows="5" name="pricing" [(ngModel)]="warehouse.pricing" #pricingField="ngModel" required [disabled]="processing"></textarea>
-      <p class="description">Enter like following: 30€/unit</p>
-      <div *ngIf="feedbackEnabled && pricingField.errors">
-        <p *ngIf="pricingField.errors.required" class="validation">Company address required</p>
-      </div>
-    </div> -->
-
 
     <div class="submit">
       <button type="submit" [disabled]="processing">Submit</button>

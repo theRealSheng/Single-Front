@@ -41,6 +41,13 @@
       <div *ngIf="feedbackEnabled && expTurnOverField.errors">
       </div>
     </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && piecesField.errors}">
+      <h5>PIECES</h5>
+      <input type="number" name="pieces" [(ngModel)]="booking.pieces" #piecesField="ngModel" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && piecesField.errors">
+      </div>
+    </div>
     
     <div class="field cargo" [ngClass]="{'has-error': feedbackEnabled && packCargoField.errors}">
       <h5>CARGO</h5>
@@ -52,6 +59,20 @@
       </select>
       <div *ngIf="feedbackEnabled && packCargoField.errors">
         <p *ngIf="packCargoField.errors.required" class="validation">Package cargo required</p>
+      </div>
+    </div>
+    
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && cargoPiecesField.errors}">
+      <h5>Cargo Pieces</h5>
+      <input type="number" name="cargoPieces" [(ngModel)]="booking.cargoPieces" #cargoPiecesField="ngModel" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && cargoPiecesField.errors">
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && dateField.errors}">
+      <h5>entry date</h5>
+      <input type="text" name="date" [(ngModel)]="booking.date" #dateField="ngModel" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && dateField.errors">
       </div>
     </div>
 
