@@ -35,6 +35,5 @@ export class CreateWarehouseFormComponent implements OnInit {
       this.warehouse.pricing = this.pricing;
       this.submitBooking.emit(this.warehouse);
     }
-    console.log(this.ownerCompany);
   }
 }

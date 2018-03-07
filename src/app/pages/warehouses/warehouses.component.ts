@@ -22,10 +22,7 @@ export class WarehousesComponent implements OnInit {
 
   ngOnInit() {
     this.warehouseCardService.getList()
-      .then(warehouses =>{
-        this.warehouses = warehouses;
-        console.log(this.warehouses);
-      } )
+      .then(warehouses =>this.warehouses = warehouses);
 
     this.authService.me()
     .then(user => this.user = user)

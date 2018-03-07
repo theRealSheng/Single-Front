@@ -2,20 +2,16 @@
   dashboard works!
 </p>
 
-<ul *ngIf="bookings">
-  <li *ngFor="let booking of bookings">
-    <p>
-      {{ booking.productName }}
-    </p>
-    <p>
-     {{ booking.dimsWeight }}
-    </p>
-    <p>
-     {{ booking.packCargo }}
-    </p>
+
+
+<ul *ngIf="bookedWarehouse">
+  <li *ngFor="let booking of bookedWarehouse">
+    <p> {{ booking.productName }} </p>
+    <p> {{ booking.dimsWeight }} </p>
+    <p> {{ booking.packCargo }} </p>
   </li>
 
 </ul>
 
-<app-graphChart></app-graphChart>
+<app-graphChart [onlineSales]="onlineSales" [bookedWarehouse]="bookedWarehouse"></app-graphChart>
 

@@ -14,8 +14,6 @@ export class WarehouseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.warehouses.picture);
-    console.log(this.warehouses);
   }
 
 }
