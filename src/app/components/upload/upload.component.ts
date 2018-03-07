@@ -11,9 +11,9 @@ export class UploadComponent implements OnInit {
   @Output() success: any = new EventEmitter<string>();
   @Input() user: any;
 
-  uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/uploads`
-  });
+  @Input() varia: string;
+
+  uploader: FileUploader;
 
   error: string;
   name: string;
@@ -23,6 +23,11 @@ export class UploadComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    this.uploader = new FileUploader({
+      url: `http://localhost:3000/${this.varia}`
+    });
+
     this.uploader.onSuccessItem = (item, response) => {
       this.message = 'Upload success!';
       const newImage = JSON.parse(response).picture;

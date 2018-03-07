@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
   picture: any;
   imageBaseUrl = 'http://localhost:3000';
   modifiedProfile: boolean = false;
-  bookings: any;
+  varia: string = 'uploads';
 
   constructor(
     private activatedRoute: ActivatedRoute, 

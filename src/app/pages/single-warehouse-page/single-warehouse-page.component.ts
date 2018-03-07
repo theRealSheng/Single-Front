@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WarehouseCardService } from '../../services/warehouse-card.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,8 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SingleWarehousePageComponent implements OnInit {
 
-  warehouseArr: Array<{}>;
+  @Input() newImage: any;
+
+  warehouseArr: any;
   warehouseId: any;
+  picture: any;
+  imageBaseUrl = 'http://localhost:3000';
+  varia: string = 'uploadsWh';
 
   constructor(private warehouseCardService: WarehouseCardService, private activatedRoute: ActivatedRoute) { }
 
@@ -20,6 +25,10 @@ export class SingleWarehousePageComponent implements OnInit {
   
     this.warehouseCardService.getSingleWarehouse(this.warehouseId)
       .then(warehouse => this.warehouseArr = warehouse)
+  }
+
+  handleSuccess(newImage) {
+    this.warehouseArr.picture = newImage;
   }
 
 }
