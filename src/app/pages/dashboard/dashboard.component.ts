@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
           .then(booking=>{
             this.bookedWarehouse = booking;
             console.log(this.bookedWarehouse);
+            console.log(this.bookedWarehouse[0].warehouseAddress.warehouseAddress)
           }) 
         // Pull the sales from Ecommerce site
           this.summaryApiService.getSalesList(this.userId)

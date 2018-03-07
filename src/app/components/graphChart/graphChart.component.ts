@@ -25,6 +25,8 @@ export class GraphChartComponent implements OnInit {
   handleCost: any;
   packCost: any;
   storeCost: any;
+  useLabels: string;
+  typeGraph: string;
 
   constructor() { }
 
@@ -105,6 +107,10 @@ export class GraphChartComponent implements OnInit {
     this.canvas.setAttribute('id', 'canvas');
     placeholder.appendChild(this.canvas);
     // this.createCanvas();
+
+    // function dataDisplay(data,type){
+    //   return [this.useLabels, this.typeGraph] = [data, type];
+    // }
 
     const context = this.canvas.getContext('2d');
 

@@ -1,19 +1,32 @@
-<p>
-  dashboard works!
-</p>
-
-
 
 <ul *ngIf="bookedWarehouse">
-  <li *ngFor="let booking of bookedWarehouse">
-    <p> {{ booking.productName }} </p>
-    <p> {{ booking.dimsWeight }} </p>
-    <p> {{ booking.packCargo }} </p>
-  </li>
+  <!-- <li *ngFor="let booking of bookedWarehouse"> -->
+    <h2>Current Warehouse:</h2>
+    <div class="title description">
+      <h3> {{ bookedWarehouse[0].warehouseAddress.companyName }} </h3>
+      <p> Location: {{ bookedWarehouse[0].warehouseAddress.warehouseAddress }} </p>
+    </div>
+    <div class="description">
+      <p> Storage Cost:</p>
+      <p> {{ bookedWarehouse[0].warehouseAddress.pricing[0].storage }} Euros/Month</p>
+    </div>
+    <div class="description">
+      <p> Handing Cost:(Euros/item)</p>
+      <p>Small letter: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[0] }}</p>
+      <p>Medim box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[1] }}</p>
+      <p>Large Box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[2] }}</p>
+    </div>
+    <div class="description">
+      <p> Packaging Cost:(Euros/item)</p>
+      <p>Small letter: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[0] }}</p>
+      <p>Medim box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[1] }}</p>
+      <p>Large Box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[2] }}</p>
+    </div>
+    
 
+  <!-- </li> -->
 </ul>
 
-<p>Type of Chart: </p>
-
-<app-graphChart [onlineSales]="onlineSales" [bookedWarehouse]="bookedWarehouse"></app-graphChart>
-
+<div class="graph">
+  <app-graphChart [onlineSales]="onlineSales" [bookedWarehouse]="bookedWarehouse"></app-graphChart>
+</div>
