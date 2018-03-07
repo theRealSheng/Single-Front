@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   picture: any;
   imageBaseUrl = 'http://localhost:3000';
   modifiedProfile: boolean = false;
+  varia: string = 'uploads';
 
   constructor(
     private activatedRoute: ActivatedRoute, 
