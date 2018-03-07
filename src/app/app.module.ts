@@ -42,6 +42,10 @@ import { CreateWarehouseFormComponent } from './components/create-warehouse-form
 import { UploadComponent } from './components/upload/upload.component';
 import { GraphChartComponent } from './components/graphChart/graphChart.component';
 
+// Pipes
+
+import { SanitizerPipe } from './pipes/sanitizer.pipe';
+
 
 const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
@@ -75,7 +79,8 @@ const routes: Routes = [
     CreateWarehouseFormComponent,
     UploadComponent,
     GraphChartComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    SanitizerPipe
   ],
   imports: [
     BrowserModule,
