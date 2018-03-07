@@ -3,8 +3,8 @@
 <form>
   <!-- <input type="text" [(ngModel)]="name" name="name" required /> -->
   <input type="file" name="file" id="file" ng2FileSelect [uploader]="uploader" />
-  <label for="file">Choose picture..</label>
-  <button (click)="submit()">Add picture</button>
+  <label for="file">Choose picture</label>
+  <button (click)="submit()">Add</button>
 </form>
 
 <div *ngIf="error" class="error">

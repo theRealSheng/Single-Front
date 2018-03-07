@@ -5,13 +5,11 @@
   @extend %form;
   input {
     background-color: $lightgrey;
-    @include tablet {
-      margin: 5% 0;
-    }
-    @include desktop {
-      margin: 5% 0;
-    }
   }
+}
+
+textarea {
+  @extend %textarea;
 }
 
 button {

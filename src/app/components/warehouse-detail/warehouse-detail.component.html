@@ -12,11 +12,15 @@
   </div>
 
   <div>
-    <h5>{{ warehouse.companyName }}</h5>
-    <p>WAREHOUSE ADDRESS: {{ warehouse.warehouseAddress }} </p>
-    <p>PRICING: {{ warehouse.pricing }} </p>
-    <p>DESCRIPTION: {{ warehouse.description }} </p>
-    <p>SPECIAL NOTES: {{ warehouse.specialNotes }} </p>
+    <h3>{{ warehouse.companyName }}</h3>
+    <h5>WAREHOUSE ADDRESS: </h5>    
+    <p>{{ warehouse.warehouseAddress }} </p>
+    <h5>PRICING: </h5>
+    <p>{{ warehouse.pricing }} </p>
+    <h5>DESCRIPTION: </h5>
+    <p>{{ warehouse.description }} </p>
+    <h5>SPECIAL NOTES: </h5>
+    <p>{{ warehouse.specialNotes }} </p>
     <button (click)="edit()">Edit profile</button>
     <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>

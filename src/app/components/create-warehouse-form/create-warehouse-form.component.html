@@ -13,7 +13,7 @@
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && warehouseAddressField.errors}">
       <h5>WAREHOUSE ADDRESS</h5>
-      <input class="warehouseAddress" name="warehouseAddress" [(ngModel)]="warehouse.warehouseAddress" #warehouseAddressField="ngModel" required [disabled]="processing"/>
+      <input type="text" name="warehouseAddress" [(ngModel)]="warehouse.warehouseAddress" #warehouseAddressField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && warehouseAddressField.errors">
         <p *ngIf="warehouseAddressField.errors.required" class="validation">Company name required</p>
       </div>
