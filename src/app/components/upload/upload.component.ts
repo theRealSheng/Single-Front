@@ -51,7 +51,6 @@ export class UploadComponent implements OnInit {
       if (this.warehouseId) {
         form.append('warehouseId', this.warehouseId);
       }
-
     };
 
     this.uploader.uploadAll();

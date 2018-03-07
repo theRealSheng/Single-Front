@@ -11,15 +11,20 @@ export class GraphChartComponent implements OnInit {
 
   @Input() bookedWarehouse: any;
   @Input() onlineSales: any;
+
   chart: any;
   canvas: any;
   isDone: boolean = false;
   
-  dates: Array<any> = []; // Dates array
-  objSales: Object = {};  // Object for total revenue per day
+  revenue: any;
 
-  items: Array<any> = []   // Items names array
-  ObjItemSales: Array<any>;  // Object for total revenue per item
+  objSales: Object = {};  // Total revenue per day
+  ObjItemSales: Object = {};  //  Total revenue per item
+  totalCostItem: Object = {}; // Total cost per item
+
+  handleCost: any;
+  packCost: any;
+  storeCost: any;
 
   constructor() { }
 
@@ -31,20 +36,69 @@ export class GraphChartComponent implements OnInit {
       return;
     }
     this.isDone = true;
-    // Setting all sales revenue per date
-    this.onlineSales.forEach((sale) => {
-      this.dates.push(sale.salesDate);
+
+    // -------- Setting all sales revenue per date
+    this.onlineSales.forEach( sale => {
       if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
       else
         this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
     })
 
-    // Setting all sales per item
-    this.onlineSales.forEach((sale) => {
-      if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
-      else
-        this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
+    // -------- Items Names Array & Total revenue per Item
+    this.onlineSales.forEach( sale => {
+      if (!this.ObjItemSales[sale.productName]) {
+        const newObj = {
+          productName: sale.productName,
+          salesPrices: Number(sale.salesPrice)
+        }
+        this.ObjItemSales[sale.productName] = newObj;    
+      } 
+      else {
+        this.ObjItemSales[sale.productName].salesPrices += sale.salesPrice;
+      }
     })
+
+    // -------- Total cost per Item
+
+    let handlingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].handling;
+    let packagingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].packaging;
+    let storageCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].storage;
+
+    let dims = {
+      0: 0.001,
+      1: 0.03,
+      2: 0.06
+    }
+
+    function typeCost(coste){
+      this.onlineSales.forEach( sale => {
+        if (!this.totalCostItem[sale.productName]){
+        const newObj = {
+          productName: sale.productName,
+          cost: coste === 'storeCost' ? coste[sale.dims] * dims[sale.dims] : coste[sale.dims]
+        }
+          this.totalCostItem[sale.productName] = newObj;
+        }
+        else {
+          coste === 'storeCost' ? 
+            this.totalCostItem[sale.productName].cost += coste[sale.dims] : this.totalCostItem[sale.productName].cost += coste[sale.dims] * dims[sale.dims];
+        }
+      }) 
+    } 
+
+    // if (this.onlineSales !== 'undefined'){
+    // // --- Only Packaging Cost
+
+    // this.handleCost = typeCost(handlingCost);
+
+    // // --- Only Handling Cost
+
+    // this.packCost = typeCost(packagingCost);
+
+    // // ---- Only Storage Cost IMPORTANT: ONLY 1 MONTH
+
+    // this.storeCost = typeCost(storageCost);
+    // }
 
     const placeholder = document.getElementById('cvs')
     this.canvas = document.createElement('canvas');

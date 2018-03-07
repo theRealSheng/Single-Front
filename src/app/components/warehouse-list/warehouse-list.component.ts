@@ -16,13 +16,7 @@ export class WarehouseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-<<<<<<< HEAD
-||||||| merged common ancestors
-    console.log(this.warehouses.picture);
-    console.log(this.warehouses);
-=======
     
->>>>>>> 4afbdaa8f0934d3d9afeee7bbf1917c8201302ca
   }
 
 }

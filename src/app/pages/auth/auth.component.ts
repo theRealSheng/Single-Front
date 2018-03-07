@@ -10,7 +10,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthComponent implements OnInit {
 
-
   error = null;
   processing = false;
   feedbackEnabled = false;

@@ -5,7 +5,7 @@
   <p class="fourth"><span>D</span>ETAILS</p>
 </div>
 
-<div class="warehouse-details" *ngIf="warehouse">
+<div class="warehouse-details" *ngIf="warehouse && user">
 
   <div class="img-wrapper">
     <img src="">
@@ -21,7 +21,9 @@
     <p>{{ warehouse.description }} </p>
     <h5>SPECIAL NOTES: </h5>
     <p>{{ warehouse.specialNotes }} </p>
-    <button (click)="edit()">Edit profile</button>
+    <div *ngIf="user._id === warehouse.ownerID">
+      <button (click)="edit()">Edit profile</button>
+    </div>
     <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>
 </div>
