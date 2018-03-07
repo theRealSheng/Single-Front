@@ -1,32 +1,12 @@
 @import '../../../styles.scss';
 
-h5 {
-  margin: 30px 0 10px 0;
-}
-
 .form-container {
-  margin: 0;
-  @include tablet {
-    margin: 0 10% 10% 10%;
-  }
-  @include desktop {
-    margin: 0 10% 10% 10%;
-  }
-  padding: 2%;
-  box-shadow: $box-shadow;
-  background-color: white;
-}
-
-.warehouseAddress {
-  border: none;
-  border-bottom: 1px solid black;
-  width: 100%;
-  line-height: 40px;
+  @extend %form;
+  @extend %form-full;
 }
 
 .splitted {
   display: grid;
-  grid-template-columns: 100%;
   @include tablet {
     grid-template-columns: 49% 49%;
     grid-column-gap: 2%;
@@ -38,10 +18,7 @@ h5 {
 }
 
 textarea {
-  border-radius: 4px;
-  border-color: grey;
-  font-size: 16px;
-  width: 100%;
+  @extend %textarea;
 }
 
 .description {
@@ -50,18 +27,85 @@ textarea {
   margin: 0 auto 0 5px;
 }
 
-input[type=number] {
-  line-height: 35px;
-  border-radius: 4px;
-  border: 1px solid lightgrey;
+.pricing {
+  display: grid;
+  grid-template-columns: 15% 24% 24% 26%;
+  grid-column-gap: 2%;
 }
 
-label {
-  display: block;
-  margin-top: 30px;
+#storage {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.storage {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+}
+
+#handling {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.handling {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 2;
+  grid-row-start: 3;
+  div {
+    align-self: center;
+  }
+}
+
+#size {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.size {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 1;
+  grid-row-start: 3;
+  p {
+    align-self: center;
+  }
+}
+
+#packaging {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.packaging {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  div {
+    align-self: center;
+  }
+}
+
+#max {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+.max {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 4;
+  grid-row-start: 3;
+  p {
+    align-self: center;
+  }
 }
 
 button {
   @extend %btn;
   display: block;
 }
+

@@ -2,16 +2,11 @@
 
 .headline {
   @extend %headline;
-  @include tablet {
-    margin-bottom: 70px;
-  }
-  @include desktop {
-    margin-bottom: 70px;
-  }
 }
 
 .fourth {
   text-transform: uppercase;
+  width: 100%;
 }
 
 .wrapper {

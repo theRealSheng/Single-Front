@@ -12,7 +12,7 @@
 </div> -->
 
 <div class="wrapper">
-
+  
   <div class="img-wrapper" *ngIf="userObj">
     <img [src]="imageBaseUrl + userObj.picture" />
     <div id="upload" *ngIf="userObj">
@@ -21,13 +21,18 @@
   </div>
   
   <div *ngIf="userObj">
-    <h5>DETAILS</h5>
+    <h3>DETAILS</h3>
     <div id="details">
-      <p> NAME: {{ userObj.companyName }} </p>
-      <p> COMPANY ADDRESS: {{ userObj.companyAddress }} </p>
-      <p> WEBSITE: {{ userObj.website }} </p>
-      <p> E-MAIL: {{ userObj.email }}</p>
-      <p> DESCRIPTION: {{ userObj.description }}</p>
+      <h5> NAME: </h5>
+      <p> {{ userObj.companyName }} </p>
+      <h5> COMPANY ADDRESS:</h5> 
+      <p> {{ userObj.companyAddress }} </p>
+      <h5> WEBSITE: </h5>
+      <p> {{ userObj.website }} </p>
+      <h5> E-MAIL: </h5>
+      <p>{{ userObj.email }}</p>
+      <h5> DESCRIPTION: </h5>
+      <p>{{ userObj.description }}</p>
       <button (click)="edit()">Edit profile</button>
     </div>
     <div id="change" *ngIf="userObj">
@@ -36,7 +41,5 @@
   </div>
   
 </div>
-
-ffff{{ processing }} fbeqweoqwe {{ feedbackEnabled}}
 
 

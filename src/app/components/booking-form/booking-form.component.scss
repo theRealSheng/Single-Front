@@ -1,41 +1,29 @@
 @import '../../../styles.scss';
 
 .form-container {
-  @include tablet {
-    margin: 0 10% 10% 10%;
-  }
-  @include desktop {
-    margin: 0 10% 10% 10%;
-  }
-  padding: 2%;
-  box-shadow: $box-shadow;
-  background-color: white;
   @extend %form;
+  @extend %form-full;
 }
 
 .contact-details {
   display: grid;
-  grid-template-columns: 50% 50%;
-  margin: 5% 2%;
-}
-
-label {
-  padding: 10px;
-}
-
-h3 {
-  margin: 5% 2%;
-}
-
-h4 {
-  margin-top: 0;
-}
-
-.input-select {
-  @extend %select;
-  select {
-    background-color: white;
+  grid-column-gap: 2%;
+  @include tablet {
+    grid-template-columns: 49% 49%;
   }
+  @include desktop {
+    grid-template-columns: 49% 49%;
+  }
+}
+
+.turnover,
+.cargo {
+  margin-bottom: 30px;
+}
+
+select {
+  @extend %select;
+  background-color: white;
 }
 
 button {
