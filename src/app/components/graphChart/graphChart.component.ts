@@ -28,7 +28,7 @@ export class GraphChartComponent implements OnInit {
     this.activatedRoute.params
       .subscribe(params => {
         this.userId = params['id'];
-        this.summaryApiService.getSalesLis(this.userId)
+        this.summaryApiService.getSalesList(this.userId)
           .then(onlineSales => {
             this.onlineSales = onlineSales;
           })
@@ -44,12 +44,12 @@ export class GraphChartComponent implements OnInit {
                 this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
             })
 
-            // Setting all sales per item
-            this.onlineSales.forEach((sale) => {
-              if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
-              else
-                this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
-            })
+            // // Setting all sales per item
+            // this.onlineSales.forEach((sale) => {
+            //   if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
+            //   else
+            //     this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
+            // })
             
             const placeholder = document.getElementById('cvs')
             this.canvas = document.createElement('canvas');

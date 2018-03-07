@@ -11,7 +11,7 @@
     
     <div *ngIf="user" class="prefilled">
       <h5>Your details:</h5>
-      <p>{{user.companyName }}</p>
+      <p>{{ user.companyName }}</p>
       <p>{{ user.companyAddress }}</p>
     </div>
   </div>
@@ -27,8 +27,15 @@
       </div>
     </div>
   
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && piecesField.errors}">
+      <h5>NUMBER OF SINGLE UNITS(1 SINGLE ITEM SALE = SINGLE UNIT)</h5>
+      <input type="number" name="pieces" [(ngModel)]="booking.pieces" #piecesField="ngModel" [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && piecesField.errors">
+      </div>
+    </div>
+
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && dimsWeightField.errors}">
-      <h5>DIMENSIONS</h5>
+      <h5>OVERALL DIMENSIONS AND WEIGHT</h5>
       <input type="text" name="dimsWeight" [(ngModel)]="booking.dimsWeight" #dimsWeightField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && dimsWeightField.errors">
         <p *ngIf="dimsWeightField.errors.required" class="validation">Dims and weight required</p>
@@ -36,21 +43,14 @@
     </div>
     
     <div class="field turnover" [ngClass]="{'has-error': feedbackEnabled && expTurnOverField.errors}">
-      <h5>EXP. TURNOVER</h5>
+      <h5>EXP. TURNOVER (DAYS)</h5>
       <input type="number" name="expTurnOver" [(ngModel)]="booking.expTurnOver" #expTurnOverField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && expTurnOverField.errors">
       </div>
     </div>
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && piecesField.errors}">
-      <h5>PIECES</h5>
-      <input type="number" name="pieces" [(ngModel)]="booking.pieces" #piecesField="ngModel" [disabled]="processing"/>
-      <div *ngIf="feedbackEnabled && piecesField.errors">
-      </div>
-    </div>
-    
     <div class="field cargo" [ngClass]="{'has-error': feedbackEnabled && packCargoField.errors}">
-      <h5>CARGO</h5>
+      <h5>PACKAGING OF COMING CARGO</h5>
       <select name="packCargo" [(ngModel)]="booking.packCargo" #packCargoField="ngModel" required>
         <option></option>
         <option>PALLETS</option>
@@ -63,14 +63,14 @@
     </div>
     
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && cargoPiecesField.errors}">
-      <h5>Cargo Pieces</h5>
+      <h5>NUMBER OF PIECES FROM COMING CARGO</h5>
       <input type="number" name="cargoPieces" [(ngModel)]="booking.cargoPieces" #cargoPiecesField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && cargoPiecesField.errors">
       </div>
     </div>
 
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && dateField.errors}">
-      <h5>entry date</h5>
+      <h5>ENTRY DATE</h5>
       <input type="text" name="date" [(ngModel)]="booking.date" #dateField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && dateField.errors">
       </div>
@@ -78,7 +78,7 @@
 
     <div>
       <input class="input-checkbox" type="checkbox" id="hazmat" name="hazmat" value="hazmat" [(ngModel)]="booking.hazmat">
-      <label for="hazmat">Hazmat</label>
+      <label for="hazmat">HAZMAT</label>
     </div>
 
     <button class="btn" type="submit" [disabled]="processing">Submit</button>

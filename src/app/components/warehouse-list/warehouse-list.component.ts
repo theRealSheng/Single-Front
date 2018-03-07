@@ -9,7 +9,7 @@ export class WarehouseListComponent implements OnInit {
 
   @Input() warehouses: any;
 
-  imageBaseUrl = 'http://localhost:3000/';
+  imageBaseUrl = 'http://localhost:3000/uploadsWh/';
 
   constructor() { }
 

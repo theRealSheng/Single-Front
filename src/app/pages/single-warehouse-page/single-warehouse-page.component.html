@@ -7,7 +7,7 @@
 <div class="img-wrapper" *ngIf="warehouseArr">
   <img [src]="imageBaseUrl + warehouseArr.picture" />
   <div id="upload" *ngIf="warehouseArr">
-    <app-upload [user]="warehouseArr" [varia]="varia" (success)="handleSuccess($event)"></app-upload>
+    <app-upload [user]="warehouseArr" [varia]="varia" [warehouseId]="warehouseId" (success)="handleSuccess($event)"></app-upload>
   </div>
 </div>
 

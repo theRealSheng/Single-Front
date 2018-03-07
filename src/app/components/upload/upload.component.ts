@@ -12,6 +12,7 @@ export class UploadComponent implements OnInit {
   @Input() user: any;
 
   @Input() varia: string;
+  @Input() warehouseId: string;
 
   uploader: FileUploader;
 
@@ -46,6 +47,11 @@ export class UploadComponent implements OnInit {
   submit() {
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', name);
+
+      if (this.warehouseId) {
+        form.append('warehouseId', this.warehouseId);
+      }
+
     };
 
     this.uploader.uploadAll();

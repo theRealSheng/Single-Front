@@ -12,7 +12,7 @@ export class SummaryApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getSalesLis(id): Promise<any> {
+  getSalesList(id): Promise<any> {
     const options = {
       withCredentials: true
     };
