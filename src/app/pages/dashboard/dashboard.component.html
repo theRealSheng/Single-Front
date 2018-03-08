@@ -1,8 +1,29 @@
 
-<ul *ngIf="bookedWarehouse">
+<div class="headline">
+  <p class="first"><span>D</span>ASH</p>
+  <p class="third"></p>
+  <p class="fourth"><span>B</span>OARD</p>
+</div>
+
+<div class="dashborad">
+  <div class="sales">
+    <h5>total cost</h5>
+  </div>
+  
+  
+  <div class="current-cost">
+    <h5>current costs</h5>
+  </div>
+  
+  
+  <div class="wh-cost">
+    <h5>warehouse price overview</h5>
+  </div>
+</div>
+
+<!-- <ul *ngIf="bookedWarehouse"> -->
   <!-- <li *ngFor="let booking of bookedWarehouse"> -->
-    <h2>Current Warehouse:</h2>
-    <div class="title description">
+    <!-- <div class="title description">
       <h3> {{ bookedWarehouse[0].warehouseAddress.companyName }} </h3>
       <p> Location: {{ bookedWarehouse[0].warehouseAddress.warehouseAddress }} </p>
     </div>
@@ -22,10 +43,10 @@
       <p>Medim box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[1] }}</p>
       <p>Large Box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[2] }}</p>
     </div>
-    
+     -->
 
   <!-- </li> -->
-</ul>
+<!-- </ul> -->
 
 <div class="graph">
   <app-graphChart [onlineSales]="onlineSales" [bookedWarehouse]="bookedWarehouse"></app-graphChart>
