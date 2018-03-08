@@ -12,9 +12,10 @@ export class UploadComponent implements OnInit {
   @Output() success: any = new EventEmitter<string>();
   @Input() user: any;
 
-  uploader: FileUploader = new FileUploader({
-    url: `http://localhost:3000/uploads`
-  });
+  @Input() varia: string;
+  @Input() warehouseId: string;
+
+  uploader: FileUploader;
 
   error: string;
   name: string;
@@ -24,6 +25,11 @@ export class UploadComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    this.uploader = new FileUploader({
+      url: `http://localhost:3000/${this.varia}`
+    });
+
     this.uploader.onSuccessItem = (item, response) => {
       this.message = 'Upload success!';
       const newImage = JSON.parse(response).picture;
@@ -33,11 +39,19 @@ export class UploadComponent implements OnInit {
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.error = 'There was an error, please try again';
     };
+
+    // document.getElementById('file').addEventListener('change', (evt) => {
+    //   //console.log(evt.currentTarget.value);
+    // })
   }
 
   submit() {
     this.uploader.onBuildItemForm = (item, form) => {
       form.append('name', name);
+
+      if (this.warehouseId) {
+        form.append('warehouseId', this.warehouseId);
+      }
     };
 
     this.uploader.uploadAll();

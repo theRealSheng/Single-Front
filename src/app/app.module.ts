@@ -3,8 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+<<<<<<< HEAD
 import { FileUploadModule } from 'ng2-file-upload';
 import { FileSelectDirective } from 'ng2-file-upload';
+||||||| merged common ancestors
+=======
+import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
+>>>>>>> dev
 
 // Services
 
@@ -12,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { WarehouseCardService } from './services/warehouse-card.service';
 import { ProfileService } from './services/profile.service';
 import { BookingService } from './services/booking.service';
+import { SummaryApiService } from './services/summary-api.service';
 
 // Guards
 
@@ -43,9 +49,13 @@ import { CreateWarehouseFormComponent } from './components/create-warehouse-form
 import { UploadComponent } from './components/upload/upload.component';
 import { GraphChartComponent } from './components/graphChart/graphChart.component';
 
+// Pipes
+
+import { SanitizerPipe } from './pipes/sanitizer.pipe';
+
 
 const routes: Routes = [
-  { path: '',  component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
+  { path: '', component: HomepageComponent, canActivate: [ InitAuthGuardService ] },
   { path: 'auth',  component: AuthComponent, canActivate: [ RequireAnonGuardService ] },
   { path: 'warehouses',  component: WarehousesComponent , canActivate: [ RequireUserGuardService ] },
   { path: 'warehouses/:id',  component: SingleWarehousePageComponent , canActivate: [ RequireUserGuardService ] },
@@ -75,7 +85,8 @@ const routes: Routes = [
     CreateWarehousePageComponent,
     CreateWarehouseFormComponent,
     UploadComponent,
-    GraphChartComponent
+    GraphChartComponent,
+    SanitizerPipe
   ],
   imports: [
     BrowserModule,
@@ -92,8 +103,10 @@ const routes: Routes = [
     RequireUserGuardService,
     WarehouseCardService,
     ProfileService,
-    BookingService
+    BookingService,
+    SummaryApiService
    ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

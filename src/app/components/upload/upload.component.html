@@ -1,15 +1,16 @@
 
 
 <form>
-  <input type="text" [(ngModel)]="name" name="name" required />
-  <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-  <button (click)="submit()"> Submit </button>
+  <input type="file" name="file" id="file" ng2FileSelect [uploader]="uploader" />
+  <label for="file">Choose picture</label>
+  <button (click)="submit()">Add</button>
 </form>
 
 <div *ngIf="error" class="error">
-xxx{{error}}xxx
+{{error}}
 </div>
 
 <div *ngIf="message" class="success">
-xxx{{message}}xxxx
+{{message}}
 </div>
+

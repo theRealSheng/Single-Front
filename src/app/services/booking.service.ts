@@ -13,14 +13,6 @@ export class BookingService {
   ngOnInit() {
   }
 
-  getBookingListSeller(id): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${apiUrl}/${id}`, options)
-      .toPromise();
-  }
-
   newBooking(data): Promise<any> {
     const options = {
       withCredentials: true
@@ -28,5 +20,12 @@ export class BookingService {
     return this.httpClient.post(`${apiUrl}`, data, options)
       .toPromise();
   }
-
+  
+  getBookingListSeller(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${apiUrl}/${id}`, options)
+      .toPromise();
+  }
 }

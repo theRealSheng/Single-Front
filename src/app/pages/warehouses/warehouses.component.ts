@@ -22,7 +22,7 @@ export class WarehousesComponent implements OnInit {
 
   ngOnInit() {
     this.warehouseCardService.getList()
-      .then(warehouses => this.warehouses = warehouses)
+      .then(warehouses =>this.warehouses = warehouses);
 
     this.authService.me()
     .then(user => this.user = user)
@@ -30,7 +30,6 @@ export class WarehousesComponent implements OnInit {
       return this.profileService.getUser(this.user._id) })
     .then(user => {
       this.userObj = user;
-      console.log(this.userObj);
     })
   }
 

@@ -9,13 +9,20 @@
   @include desktop {
     grid-template-columns: 33% 33% 33%;
   }
+  padding: 0;
   li {
     list-style-type: none;
   }
 }
 
 .card {
-  padding: 0 1.7rem;
+  padding: 0;
+  @include tablet {
+    padding: 0 1.7rem;
+  }
+  @include desktop {
+    padding: 0 1.7rem;
+  }
   margin-bottom: 3.4rem;
 }
 
@@ -23,7 +30,7 @@
   position: relative;
   overflow: hidden;
   min-height: 480px;
-  background: url(http://via.placeholder.com/865x567) center / cover no-repeat;
+  // background: url(http://via.placeholder.com/865x567) center / cover no-repeat;
   box-shadow: $box-shadow;
   &:hover {
     .info {

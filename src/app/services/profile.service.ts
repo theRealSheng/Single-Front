@@ -25,4 +25,5 @@ export class ProfileService {
     return this.httpClient.put(`${apiUrl}/${data._id}`, data, options)
       .toPromise();
   }
+
 }

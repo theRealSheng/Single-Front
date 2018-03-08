@@ -6,7 +6,7 @@
       <img src="../assets/img/menu.svg" alt="menu-icon">
     </div>
 
-    <span class="logo">S<span class="slash">|</span>L</span>
+    <a [routerLink]="['/']" class="logo">S<span class="slash">|</span>L</a>
 
     <div #tabElement class="tabs" *ngIf="!loading && !!user">
       <input type='radio' id='r1' name='t' checked>
@@ -28,7 +28,7 @@
         <button class="btn"><a (click)="logout()">logout</a></button>
       </div>
       <div *ngIf="!loading && anon">
-        <button class="btn"><a (click)="login()">login & signup</a></button>
+        <button class="btn"><a (click)="login()">sign in</a></button>
       </div>
     </div>
 

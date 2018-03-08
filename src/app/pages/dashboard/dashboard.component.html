@@ -1,3 +1,109 @@
-<p>
-  dashboard works!
-</p>
+
+<div class="headline">
+  <p class="first"><span>D</span>ASH</p>
+  <p class="third"></p>
+  <p class="fourth"><span>B</span>OARD</p>
+</div>
+
+<div class="dashboard">
+
+  <div class="sales">
+    <h3>total cost</h3>
+    <p><span class="number">25.000</span> €</p>
+  </div>
+
+  <div class="current-cost">
+    <h3>current costs</h3>
+    <div class="storage">
+      <h5>Storage</h5>
+      <div class="cbm">
+        <p>CBM</p>
+        <p><span class="number">1.300</span> €</p>
+      </div>
+    </div>
+    <div class="cost-table">
+      <div class="sizes">
+        <h5>Sizes</h5>
+        <p>Small</p>
+        <p>Medium</p>
+        <p>Large</p>
+      </div>
+      <div class="handling">
+        <h5>Handling</h5>
+        <p><span class="number">300</span> €</p>
+        <p><span class="number">400</span> €</p>
+        <p><span class="number">500</span> €</p>
+      </div>
+      <div class="packaging">
+        <h5>Packaging</h5>
+        <p><span class="number">300</span> €</p>
+        <p><span class="number">400</span> €</p>
+        <p><span class="number">500</span> €</p>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="wh-cost">
+    <h3>price overview</h3>
+    <div class="storage">
+      <h5>Storage</h5>
+      <div class="cbm">
+        <p>CBM</p>
+        <p><span class="number">1.300</span> €</p>
+      </div>
+    </div>
+    <div class="cost-table">
+      <div class="sizes">
+        <h5>Sizes</h5>
+        <p>Small</p>
+        <p>Medium</p>
+        <p>Large</p>
+      </div>
+      <div class="handling">
+        <h5>Handling</h5>
+        <p><span class="number">300</span> €</p>
+        <p><span class="number">400</span> €</p>
+        <p><span class="number">500</span> €</p>
+      </div>
+      <div class="packaging">
+        <h5>Packaging</h5>
+        <p><span class="number">300</span> €</p>
+        <p><span class="number">400</span> €</p>
+        <p><span class="number">500</span> €</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <ul *ngIf="bookedWarehouse"> -->
+  <!-- <li *ngFor="let booking of bookedWarehouse"> -->
+    <!-- <div class="title description">
+      <h3> {{ bookedWarehouse[0].warehouseAddress.companyName }} </h3>
+      <p> Location: {{ bookedWarehouse[0].warehouseAddress.warehouseAddress }} </p>
+    </div>
+    <div class="description">
+      <p> Storage Cost:</p>
+      <p> {{ bookedWarehouse[0].warehouseAddress.pricing[0].storage }} Euros/Month</p>
+    </div>
+    <div class="description">
+      <p> Handing Cost:(Euros/item)</p>
+      <p>Small letter: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[0] }}</p>
+      <p>Medim box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[1] }}</p>
+      <p>Large Box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].handling[2] }}</p>
+    </div>
+    <div class="description">
+      <p> Packaging Cost:(Euros/item)</p>
+      <p>Small letter: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[0] }}</p>
+      <p>Medim box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[1] }}</p>
+      <p>Large Box: {{ bookedWarehouse[0].warehouseAddress.pricing[0].packaging[2] }}</p>
+    </div>
+     -->
+
+  <!-- </li> -->
+<!-- </ul> -->
+
+<div class="graph">
+  <app-graphChart [onlineSales]="onlineSales" [bookedWarehouse]="bookedWarehouse"></app-graphChart>
+</div>

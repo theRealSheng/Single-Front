@@ -10,9 +10,9 @@ export class ProfileFormEditComponent implements OnInit {
   @Output() submitProfile = new EventEmitter<any>();
   @Input() user: any;
 
-  @Input() feedbackEnabled = false;
+  @Input() feedbackEnabled = false; // remove input
+  @Input() processing = false; // remove input
   @Input() error = null;
-  @Input() processing = false;
 
   constructor() { }
 
@@ -23,7 +23,7 @@ export class ProfileFormEditComponent implements OnInit {
     this.error = '';
     this.feedbackEnabled = true;
     if (form.valid) {
-      this.processing = true;
+      this.feedbackEnabled = false;
       this.submitProfile.emit(this.user);
     }
   }

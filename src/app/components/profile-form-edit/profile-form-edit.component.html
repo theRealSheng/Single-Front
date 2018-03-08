@@ -1,32 +1,44 @@
 
 <div class="form-container">
-  <h3>Change profile information</h3>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="signup">
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyNameField.errors}">
-      <input placeholder="Company name" type="text" name="companyName" [(ngModel)]="user.companyName" #companyNameField="ngModel" required [disabled]="processing"/>
+      <h5>company name</h5>
+      <input type="text" name="companyName" [(ngModel)]="user.companyName" #companyNameField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && companyNameField.errors">
         <p *ngIf="companyNameField.errors.required" class="validation">Company name required</p>
       </div>
     </div>
   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && companyAddressField.errors}">
-      <input placeholder="Company address" type="text" name="companyAddress" [(ngModel)]="user.companyAddress" #companyAddressField="ngModel" required [disabled]="processing"/>
+      <h5>Company address</h5>
+      <input type="text" name="companyAddress" [(ngModel)]="user.companyAddress" #companyAddressField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && companyAddressField.errors">
         <p *ngIf="companyAddressField.errors.required" class="validation">Company address required</p>
       </div>
     </div>
    
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && websiteField.errors}">
+      <h5>Website</h5>
+      <input type="text" name="website" [(ngModel)]="user.website" #websiteField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && websiteField.errors">
+        <p *ngIf="websiteField.errors.required" class="validation">Website required</p>
+      </div>
+    </div>
+   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
-      <input placeholder="E-Mail" type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
+      <h5>E-mail</h5>
+      <input type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" required [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && emailField.errors">
-        <p *ngIf="emailField.errors.required" class="validation">Company address required</p>
+        <p *ngIf="emailField.errors.required" class="validation">E-Mail required</p>
       </div>
     </div>
   
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
-      <input type="description" name="description" [(ngModel)]="user.description" #descriptionField="ngModel" [disabled]="processing" placeholder="General information about your company"/>
+      <h5>Description</h5>
+      <textarea cols="40" rows="5" name="description" [(ngModel)]="user.description" #descriptionField="ngModel" [disabled]="processing"></textarea>
       <div *ngIf="feedbackEnabled && descriptionField.errors"></div>
     </div>
+
     <div class="field submit">
       <button type="submit" [disabled]="processing">Submit changes</button>
     </div>

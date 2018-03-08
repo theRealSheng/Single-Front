@@ -16,6 +16,12 @@ export class CreateWarehouseFormComponent implements OnInit {
 
   warehouse: any = {};
 
+  pricing = {
+    storage: 0,
+    handling: [0,0,0],
+    packaging: [0,0,0]
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -26,6 +32,7 @@ export class CreateWarehouseFormComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
+      this.warehouse.pricing = this.pricing;
       this.submitBooking.emit(this.warehouse);
     }
   }

@@ -1,23 +1,45 @@
-<div *ngIf="!warehouse">
-  loading...
+
+<div class="headline" *ngIf="warehouse">
+  <p class="first"><span>W</span>AREHOUSE</p>
+  <p class="third"></p>
+  <p class="fourth"><span>D</span>ETAILS</p>
 </div>
 
-<div class="warehouse-details" *ngIf="warehouse">
-  <div class="img-upload">
-    <div class="img-grid">
-      <div class="img-box">
-        <img src="http://via.placeholder.com/450x300">
-      </div>
-      <p class="red"></p>
-      <p class="blue"></p>
-    </div>
+<div class="warehouse-details" *ngIf="warehouse && user">
+
+  <div class="img-wrapper">
+    <img src="">
   </div>
-  <div class="info">
-    <h3> {{ warehouse.companyName }} </h3>
-    <p> {{ warehouse.warehouseAddress }} </p>
-    <p> {{ warehouse.pricing }} </p>
-    <p> {{ warehouse.description }} </p>
-    <p> {{ warehouse.specialNotes }} </p>
-    <button class="btn"><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
+
+  <div>
+    <h3>{{ warehouse.companyName }}</h3>
+    <h5>WAREHOUSE ADDRESS: </h5>    
+    <p>{{ warehouse.warehouseAddress }} </p>
+    <h5>PRICING: </h5>
+    <p> Storage Cost:</p>
+    <p> {{ warehouse.pricing[0].storage }} Euros/Month</p>
+    <div class="description">
+      <p> Handing Cost:(Euros/item)</p>
+      <p>Small letter: {{ warehouse.pricing[0].handling[0] }}</p>
+      <p>Medim box: {{ warehouse.pricing[0].handling[1] }}</p>
+      <p>Large Box: {{ warehouse.pricing[0].handling[2] }}</p>
+    </div>
+    <div class="description">
+      <p> Packaging Cost:(Euros/item)</p>
+      <p>Small letter: {{ warehouse.pricing[0].packaging[0] }}</p>
+      <p>Medim box: {{ warehouse.pricing[0].packaging[1] }}</p>
+      <p>Large Box: {{ warehouse.pricing[0].packaging[2] }}</p>
+    </div>
+
+
+
+    <h5>DESCRIPTION: </h5>
+    <p>{{ warehouse.description }} </p>
+    <h5>SPECIAL NOTES: </h5>
+    <p>{{ warehouse.specialNotes }} </p>
+    <div *ngIf="user._id === warehouse.ownerID">
+      <button (click)="edit()">Edit profile</button>
+    </div>
+    <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>
 </div>

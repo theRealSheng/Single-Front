@@ -8,10 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class WarehouseDetailComponent implements OnInit {
 
   @Input() warehouse: any;
+  @Input() user: any;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

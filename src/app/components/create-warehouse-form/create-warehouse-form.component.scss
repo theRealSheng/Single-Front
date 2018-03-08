@@ -1,29 +1,106 @@
 @import '../../../styles.scss';
 
 .form-container {
-  margin: 0 10% 10% 10%;
-  padding: 2%;
-  box-shadow: $box-shadow;
-  background-color: white;
   @extend %form;
+  @extend %form-full;
 }
 
-.prefilled {
-  margin: 5% 2%;
+.splitted {
+  display: grid;
+  @include tablet {
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+  }
+  @include desktop {
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+  } 
 }
 
-h3 {
-  margin: 5% 2%;
+textarea {
+  @extend %textarea;
 }
 
-h4 {
-  margin-top: 0;
+.description {
+  font-size: 14px;
+  color: grey;
+  margin: 0 auto 0 5px;
 }
 
-.input-select {
-  @extend %select;
-  select {
-    background-color: white;
+.pricing {
+  display: grid;
+  grid-template-columns: 15% 24% 24% 26%;
+  grid-column-gap: 2%;
+}
+
+#storage {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.storage {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  align-self: center;
+}
+
+#handling {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.handling {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 2;
+  grid-row-start: 3;
+  div {
+    align-self: center;
+  }
+}
+
+#size {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+
+.size {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 1;
+  grid-row-start: 3;
+  p {
+    align-self: center;
+  }
+}
+
+#packaging {
+  grid-column-start: 3;
+  grid-row-start: 2;
+}
+
+.packaging {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  div {
+    align-self: center;
+  }
+}
+
+#max {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+.max {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-start: 4;
+  grid-row-start: 3;
+  p {
+    align-self: center;
   }
 }
 
@@ -31,3 +108,4 @@ button {
   @extend %btn;
   display: block;
 }
+

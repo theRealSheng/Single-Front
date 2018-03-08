@@ -1,5 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
 
 /* ---- scss ---- */
 
@@ -9,6 +7,7 @@ $red:#ff6636;
 $blue: #34b7ec;
 $green: #009675;
 $lightgrey: #fbf9f9;
+$transparent: #ffffffe8;
 $box-shadow: 5px 5px 20px rgba(0,0,0,0.05), 0px 0px 30px rgba(0,0,0,0.1);
 $tablet-width: 768px;
 $desktop-width: 1200px;
@@ -40,7 +39,6 @@ $desktop-width: 1200px;
 }
 
 
-
 /* Extends */
 // buttons
 %btn {
@@ -51,6 +49,7 @@ $desktop-width: 1200px;
   text-transform: uppercase;
   margin: 20px auto;
   color: white;
+  cursor: pointer;
   a {
     color: white;
   }
@@ -59,28 +58,69 @@ $desktop-width: 1200px;
 // headline
 %headline {
   display: grid;
-  grid-template-columns: 50% 50%;
-  font-size: 40px;
+  font-size: 35px;
+  margin: 90px auto 30px auto;
+  @include tablet {
+    font-size: 40px;
+    grid-template-columns: 50% 50%;
+    margin: 100px auto 40px auto;
+  }
+  @include desktop {
+    font-size: 40px;
+    grid-template-columns: 50% 50%;
+    margin: 100px auto 40px auto;
+  }
   letter-spacing: 0.2em;
-  margin: 100px auto 40px auto;
   span {
-    font-size: 55px;
+    font-size: 45px;
+    @include tablet {
+      font-size: 55px;
+    }
+    @include desktop {
+      font-size: 55px;
+    }
   }
   .first {
     grid-column-start: 1;
-    border-right: 4px solid $red;
+    border-bottom: 4px solid $red;
+    justify-self: center;
+    @include tablet {
+      border-bottom: none;
+      border-right: 4px solid $red;
+      justify-self: end;
+    }
+    @include desktop {
+      border-bottom: none;
+      border-right: 4px solid $red;
+      justify-self: end;
+    }
     margin: 0;
-    justify-self: end;
   }
   .third {
-    grid-column-start: 1;
-    grid-row-start: 2;
-    border-right: 4px solid $red;
-    margin: 0;
+    display: none;
+    @include tablet {
+      grid-column-start: 1;
+      grid-row-start: 2;
+      border-right: 4px solid $red;
+      margin: 0;
+    }
+    @include desktop {
+      display: inherit;
+      grid-column-start: 1;
+      grid-row-start: 2;
+      border-right: 4px solid $red;
+      margin: 0;
+    }
   }
   .fourth {
-    grid-column-start: 2;
+    justify-self: center;
+    @include tablet {
+      justify-self: start;
+      grid-column-start: 2;
+    }
     @include desktop {
+      justify-self: start;
+      grid-column-start: 2;
       grid-row-start: 2;
     }
     margin: 0 0 0 5px;
@@ -88,38 +128,67 @@ $desktop-width: 1200px;
 }
 
 // form input
+%form-full {
+  margin: 0;
+  @include tablet {
+    margin: 0 5% 10% 5%;
+  }
+  @include desktop {
+    margin: 0 10% 10% 10%;
+  }
+  padding: 2%;
+  box-shadow: $box-shadow;
+  background-color: white;
+}
 
 %form {
-  input {
-    border: none;
-    border-bottom: 1px solid black;
+  input[type=text], 
+  input[type=email],
+  input[type=password] {
     display: block;
-    width: 96%;
-    margin: 5% 2%;
+    width: 100%;
+    line-height: 35px;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
   }
   input[type=checkbox] {
-    margin: 0 auto 0 2%;
-    display: inline;
-    width: auto;
+    // display: inline;
+    // width: auto;
+    // margin: 0 auto 0 2%;
     label {
       color: grey;
       padding: 0;
     }
-  } 
+  }
+  input[type=number] {
+    width: 100%;
+    line-height: 35px;
+    border-radius: 4px;
+    border: 1px solid grey;
+  }
 }
 
 %select {
-  border-bottom: 1px solid black;
-  color: grey;
-  margin: 5% 2%;
-  display: grid;
-  grid-template-columns: 20% auto;
+  display: block;
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid grey;
+  background-color: white;
   label {
+    color: grey;
     padding: 0;
   }
-  select {
-    border: none;
-  }
+}
+
+%textarea {
+  width: 100%;
+  font-size: 16px;
+  border-radius: 4px;
+  border-color: grey;
+  margin-bottom: 20px;
 }
 
 /* ---- reset ---- */
@@ -145,7 +214,7 @@ body, ul {
 
 /* ---- typography ---- */
 
-h1, h2, h3, h4, p, li, a, label, button, span, select, input {
+h1, h2, h3, h4, h5, p, li, a, label, button, span, select, input, div {
   font-family: 'Roboto', sans-serif;
 }
 
@@ -161,17 +230,35 @@ h2 {
 }
 
 h3 {
-  font-size: 30px;
-  border-bottom: 4px solid $blue;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 25px;
+  @include tablet {
+    font-size: 30px;
+  }
+  @include desktop {
+    font-size: 30px;
+  }
+  border-bottom: 1px solid $blue;
 }
 
 h4 {
   font-size: 20px;
+  letter-spacing: 0.1em;
+}
+
+h5 {
+  display: inline-block;
+  font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid $red;
+  margin: 10px 0 10px 0;
 }
 
 a {
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 
 select, input {

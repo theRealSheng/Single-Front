@@ -1,7 +1,14 @@
-<p>
-  single-warehouse-page works!
-</p>
 
 <div *ngIf="warehouseArr" >
-  <app-warehouse-detail [warehouse]="warehouseArr"></app-warehouse-detail>
+  <app-warehouse-detail [user]="user" [warehouse]="warehouseArr"></app-warehouse-detail>
 </div>
+
+
+<div class="img-wrapper" *ngIf="warehouseArr && user">
+  <img [src]="imageBaseUrl + warehouseArr.picture" />
+  <div id="upload" *ngIf="warehouseArr && warehouseArr.ownerID === user._id">
+    <app-upload [user]="warehouseArr" [varia]="varia" [warehouseId]="warehouseId" (success)="handleSuccess($event)"></app-upload>
+  </div>
+</div>
+
+
