@@ -9,33 +9,34 @@
   width: 100%;
 }
 
+h3 {
+  margin: 0 5%;
+}
+
 .wrapper {
   display: grid;
+  grid-column-gap: 2%;
   grid-template-columns: 100%;
-  text-align: center;
   @include tablet {
-    grid-template-columns: 50% 50%;
-    text-align: left;
+    grid-template-columns: 55% 43%;
   }
   @include desktop {
-    grid-template-columns: 50% 50%;
-    text-align: left;
+    grid-template-columns: 55% 43%;
   }
-  padding: 2%;
+  padding: 2% 5%;
 }
 
 .img-wrapper {
-  justify-self: center;
+  grid-row-start: 1;
+  @include tablet {
+    grid-column-start: 2;
+  }
+  @include desktop {
+    grid-column-start: 2;
+  }
   img {
     box-shadow: $box-shadow;
-    max-height: 50vw;
-    margin-bottom: 20px;
-    @include tablet {
-      max-width: 45vw;
-    }
-    @include desktop {
-      max-width: 45vw;
-    }
+    width: 100%;
   }
 }
 

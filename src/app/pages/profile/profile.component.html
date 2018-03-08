@@ -11,17 +11,10 @@
   <a [routerLink]="['/profile', userObj._id, 'create-warehouse']"> +Create New Warehouse</a>
 </div> -->
 
+<h3>DETAILS</h3>
 <div class="wrapper">
   
-  <div class="img-wrapper" *ngIf="userObj">
-    <img [src]="imageBaseUrl + userObj.picture" />
-    <div id="upload" *ngIf="userObj">
-      <app-upload [user]="userObj" [varia]="varia" (success)="handleSuccess($event)"></app-upload>
-    </div>
-  </div>
-  
   <div *ngIf="userObj">
-    <h3>DETAILS</h3>
     <div id="details">
       <h5> NAME: </h5>
       <p> {{ userObj.companyName }} </p>
@@ -37,6 +30,13 @@
     </div>
     <div id="change" *ngIf="userObj">
       <app-profile-form-edit [user]="userObj" [feedbackEnabled]="feedbackEnabled" [error]="error" [processing]="processing" (submitProfile)="handleSubmitProfile($event)"></app-profile-form-edit>
+    </div>
+  </div>
+
+  <div class="img-wrapper" *ngIf="userObj">
+    <img [src]="imageBaseUrl + userObj.picture" />
+    <div id="upload" *ngIf="userObj">
+      <app-upload [user]="userObj" [varia]="varia" (success)="handleSuccess($event)"></app-upload>
     </div>
   </div>
   
