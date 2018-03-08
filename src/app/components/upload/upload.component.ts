@@ -40,9 +40,6 @@ export class UploadComponent implements OnInit {
       this.error = 'There was an error, please try again';
     };
 
-    // document.getElementById('file').addEventListener('change', (evt) => {
-    //   //console.log(evt.currentTarget.value);
-    // })
   }
 
   submit() {

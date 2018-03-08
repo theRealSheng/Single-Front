@@ -29,12 +29,21 @@ export class GraphChartComponent implements OnInit {
   totalCostHanItem: Object = {}; // Total handling cost per item
   totalCostPackItem: Object = {}; // Total pack cost per item
   totalCostStoreItem: Object = {}; // Total store cost per item
+  
+  useLabels: string;
+  typeGraph: string;
 
   handleCost: any;
   packCost: any;
   storeCost: any;
-  useLabels: string;
-  typeGraph: string;
+
+  handlingSmTotal: number = 0;
+  handlingMdTotal: number = 0;
+  handlingLgTotal: number = 0;
+
+  packingSmTotal: number = 0;
+  packingMdTotal: number = 0;
+  packingLgTotal: number = 0;
 
   constructor() { }
 
@@ -46,37 +55,26 @@ export class GraphChartComponent implements OnInit {
       return;
     }
     this.isDone = true;
+    console.log(this.ObjItemSales);
 
     // -------- Setting all sales revenue per date
     this.onlineSales.forEach( sale => {
-      if (!this.objSales[sale.salesDate]) this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
-      else
-        this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
-    })
-
-    // -------- Items Names Array & Total revenue per Item
-    this.onlineSales.forEach( sale => {
-      if (!this.ObjItemSales[sale.productName]) {
-        const newObj = {
-          salesPrices: sale.salesPrice,
-        }
-        this.ObjItemSales[sale.productName] = newObj;    
+      if (!this.objSales[sale.salesDate.substring(0, 10)]){
+        this.objSales[sale.salesDate.substring(0, 10)] = sale.salesPrice;
       } 
       else {
-        this.ObjItemSales[sale.productName].salesPrices += sale.salesPrice;
+        this.objSales[sale.salesDate.substring(0, 10)] += sale.salesPrice;
       }
-    })
 
-    // -------- Items Names Array & Total revenue per Item/day
-    this.onlineSales.forEach(sale => {
-      if (!this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)]) {
-        this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)] = sale.salesPrice
+      // -------- Items Names Array & Total revenue per Item
+
+      if (!this.ObjItemSales[sale.productName]) {
+        this.ObjItemSales[sale.productName] = sale.salesPrice;
       }
       else {
-        this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)] += sale.salesPrice;
+        this.ObjItemSales[sale.productName] += sale.salesPrice;
       }
     })
-
 
     // -------- Total cost per Item
     let handlingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].handling;
@@ -119,30 +117,16 @@ export class GraphChartComponent implements OnInit {
     const context3 = this.canvas3.getContext('2d');
 
     this.chart = new Chart(context3, {
-      type: 'line',
-
+      type: 'bar',
       data:
         {
-          labels: Object.keys(this.objSales),
+          labels: Object.keys(this.ObjItemSales),
           datasets: [{
-            label: 'this.ObjItemSales[0]',
-            data: [1, 2, 3, 1, 2, 3, 1, 2, 3],
+            label: 'Gross Revenue by item',
+            data: Object.values(this.ObjItemSales),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)'
-          },
-          {
-            label: 'animals',
-            data: [20, 30, 40],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255,99,132,1)'
-          },
-          {
-            label: '',
-            data: ['undefined'],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255,99,132,1)'
-          }
-          ],
+          }],
         },
       borderWidth: 1,
       options: {
@@ -152,66 +136,6 @@ export class GraphChartComponent implements OnInit {
               beginAtZero: true
             }
           }]
-        }
-      }
-    })
-
-    const placeholder = document.getElementById('cvs')
-    this.canvas = document.createElement('canvas');
-    this.canvas.setAttribute('id', 'canvas');
-    placeholder.appendChild(this.canvas);
-
-    const context = this.canvas.getContext('2d');
-
-    this.chart = new Chart(context, {
-      type: 'line',
-      data: {
-        labels: Object.keys(this.ObjItemSales),
-        datasets: [{
-          label: 'Sales by Date',
-          data: Object.values(this.objSales),
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255,99,132,1)'
-        }],
-        borderWidth: 1,
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
-    }
-    })
-
-    const placeholder2 = document.getElementById('cvs2')
-    this.canvas2 = document.createElement('canvas');
-    this.canvas2.setAttribute('id', 'canvas2');
-    placeholder.appendChild(this.canvas2);
-
-    const context2 = this.canvas2.getContext('2d');
-
-    this.chart = new Chart(context2, {
-      type: 'bar',
-      data: {
-        labels: Object.keys(this.totalCostHanItem),
-        datasets: [{
-          label: 'Total Handling Cost Per Item',
-          data: Object.values(this.totalCostHanItem),
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255,99,132,1)'
-        }],
-        borderWidth: 1,
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
         }
       }
     })
