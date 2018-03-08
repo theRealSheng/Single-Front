@@ -32,6 +32,4 @@ export class WarehousesComponent implements OnInit {
       this.userObj = user;
     })
   }
-
-
 }

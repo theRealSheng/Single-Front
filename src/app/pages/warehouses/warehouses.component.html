@@ -10,12 +10,12 @@
   <button *ngIf="!userObj.companyName || !userObj.email || !userObj.companyAddress">
     <a [routerLink]="['/profile', userObj._id]">Add new Warehouse</a>
   </button>
-  
+
   <button *ngIf="userObj.companyName && userObj.email  && userObj.companyAddress">
     <a [routerLink]="['/profile', userObj._id, 'create-warehouse']">Add new Warehouse</a>
   </button>
+  
 </div>
-
 
 <div *ngIf="warehouses">
   <app-warehouse-list [warehouses]="warehouses"></app-warehouse-list>
