@@ -126,20 +126,7 @@ export class GraphChartComponent implements OnInit {
             data: Object.values(this.ObjItemSales),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)'
-          }
-          // {
-          //   label: '',
-          //   data: [],
-          //   backgroundColor: 'rgba(50, 255, 132, 0.2)',
-          //   borderColor: 'rgba(255,99,132,1)'
-          // },
-          // {
-          //   label: '',
-          //   data: [],
-          //   backgroundColor: 'rgba(50, 99, 255, 0.2)',
-          //   borderColor: 'rgba(255,99,132,1)'
-          // }
-          ],
+          }],
         },
       borderWidth: 1,
       options: {
