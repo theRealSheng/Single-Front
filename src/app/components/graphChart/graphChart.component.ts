@@ -14,13 +14,21 @@ export class GraphChartComponent implements OnInit {
 
   chart: any;
   canvas: any;
+  canvas2: any;
+  canvas3: any;
   isDone: boolean = false;
   
   revenue: any;
 
   objSales: Object = {};  // Total revenue per day
   ObjItemSales: Object = {};  //  Total revenue per item
-  totalCostItem: Object = {}; // Total cost per item
+
+  objItemSalesDate: Object = {}; // Total sales per item per data
+  nameofProducts: Array<any> = [];
+
+  totalCostHanItem: Object = {}; // Total handling cost per item
+  totalCostPackItem: Object = {}; // Total pack cost per item
+  totalCostStoreItem: Object = {}; // Total store cost per item
 
   handleCost: any;
   packCost: any;
@@ -50,8 +58,7 @@ export class GraphChartComponent implements OnInit {
     this.onlineSales.forEach( sale => {
       if (!this.ObjItemSales[sale.productName]) {
         const newObj = {
-          productName: sale.productName,
-          salesPrices: Number(sale.salesPrice)
+          salesPrices: sale.salesPrice,
         }
         this.ObjItemSales[sale.productName] = newObj;    
       } 
@@ -60,8 +67,19 @@ export class GraphChartComponent implements OnInit {
       }
     })
 
-    // -------- Total cost per Item
+    // -------- Items Names Array & Total revenue per Item/day
+    this.onlineSales.forEach(sale => {
+      if (!this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)]) {
+        this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)] = sale.salesPrice
+      }
+      else {
+        this.ObjItemSales[sale.productName][sale.salesDate.substring(0, 10)] += sale.salesPrice;
+      }
+    })
 
+        console.log(this.nameofProducts);
+
+    // -------- Total cost per Item
     let handlingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].handling;
     let packagingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].packaging;
     let storageCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].storage;
@@ -72,74 +90,62 @@ export class GraphChartComponent implements OnInit {
       2: 0.06
     }
 
-    function typeCost(coste){
-      this.onlineSales.forEach( sale => {
-        if (!this.totalCostItem[sale.productName]){
-        const newObj = {
-          productName: sale.productName,
-          cost: coste === 'storeCost' ? coste[sale.dims] * dims[sale.dims] : coste[sale.dims]
-        }
-          this.totalCostItem[sale.productName] = newObj;
-        }
+    function typeCost (coste, sales, totalCost) {
+      sales.forEach( sale => {
+        if (!totalCost[sale.productName]) {
+          totalCost[sale.productName] = Array.isArray(coste) ? coste[sale.dims]: coste * dims[sale.dims];
+        } 
         else {
-          coste === 'storeCost' ? 
-            this.totalCostItem[sale.productName].cost += coste[sale.dims] : this.totalCostItem[sale.productName].cost += coste[sale.dims] * dims[sale.dims];
-        }
-      }) 
+          Array.isArray(coste) ? 
+            totalCost[sale.productName] += coste[sale.dims] : totalCost[sale.productName] += coste * dims[sale.dims];
+          }
+        }) 
+      return totalCost;
     } 
 
-    // if (this.onlineSales !== 'undefined'){
-    // // --- Only Packaging Cost
+    // --- Only Packaging Cost
+    this.handleCost = typeCost(handlingCost, this.onlineSales, this.totalCostHanItem);
 
-    // this.handleCost = typeCost(handlingCost);
+    // --- Only Handling Cost
+    this.packCost = typeCost(packagingCost, this.onlineSales, this.totalCostPackItem);
 
-    // // --- Only Handling Cost
+    // ---- Only Storage Cost IMPORTANT: ONLY 1 MONTH
+    this.storeCost = typeCost(storageCost, this.onlineSales, this.totalCostStoreItem);
 
-    // this.packCost = typeCost(packagingCost);
+    const placeholder3 = document.getElementById('cvs3')
+    this.canvas3 = document.createElement('canvas');
+    this.canvas3.setAttribute('id', 'canvas');
+    placeholder3.appendChild(this.canvas3);
 
-    // // ---- Only Storage Cost IMPORTANT: ONLY 1 MONTH
+    const context3 = this.canvas3.getContext('2d');
 
-    // this.storeCost = typeCost(storageCost);
-    // }
-
-    const placeholder = document.getElementById('cvs')
-    this.canvas = document.createElement('canvas');
-    this.canvas.setAttribute('id', 'canvas');
-    placeholder.appendChild(this.canvas);
-    // this.createCanvas();
-
-    // function dataDisplay(data,type){
-    //   return [this.useLabels, this.typeGraph] = [data, type];
-    // }
-
-    const context = this.canvas.getContext('2d');
-
-    this.chart = new Chart(context, {
+    this.chart = new Chart(context3, {
       type: 'line',
-      data: {
-        labels: Object.keys(this.objSales),
-        datasets: [{
-          label: 'Sales by Date',
-          data: Object.values(this.objSales),
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+
+      data:
+        {
+          labels: Object.keys(this.objSales),
+          datasets: [{
+            label: 'this.ObjItemSales[0]',
+            data: [1, 2, 3, 1, 2, 3, 1, 2, 3],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255,99,132,1)'
+          },
+          {
+            label: 'animals',
+            data: [20, 30, 40],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255,99,132,1)'
+          },
+          {
+            label: '',
+            data: ['undefined'],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255,99,132,1)'
+          }
           ],
-          borderColor: [
-            'rgba(255,99,132,1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
+        },
+      borderWidth: 1,
       options: {
         scales: {
           yAxes: [{
@@ -150,5 +156,66 @@ export class GraphChartComponent implements OnInit {
         }
       }
     })
+
+    const placeholder = document.getElementById('cvs')
+    this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('id', 'canvas');
+    placeholder.appendChild(this.canvas);
+
+    const context = this.canvas.getContext('2d');
+
+    this.chart = new Chart(context, {
+      type: 'line',
+      data: {
+        labels: Object.keys(this.ObjItemSales),
+        datasets: [{
+          label: 'Sales by Date',
+          data: Object.values(this.objSales),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255,99,132,1)'
+        }],
+        borderWidth: 1,
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    }
+    })
+
+    const placeholder2 = document.getElementById('cvs2')
+    this.canvas2 = document.createElement('canvas');
+    this.canvas2.setAttribute('id', 'canvas2');
+    placeholder.appendChild(this.canvas2);
+
+    const context2 = this.canvas2.getContext('2d');
+
+    this.chart = new Chart(context2, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(this.totalCostHanItem),
+        datasets: [{
+          label: 'Total Handling Cost Per Item',
+          data: Object.values(this.totalCostHanItem),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255,99,132,1)'
+        }],
+        borderWidth: 1,
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      }
+    })
+
   }
 }
