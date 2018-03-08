@@ -55,8 +55,6 @@ export class GraphChartComponent implements OnInit {
       return;
     }
     this.isDone = true;
-
-    console.log(this.objSales);
     console.log(this.ObjItemSales);
 
     // -------- Setting all sales revenue per date
@@ -124,7 +122,7 @@ export class GraphChartComponent implements OnInit {
         {
           labels: Object.keys(this.ObjItemSales),
           datasets: [{
-            label: 'Sales by item',
+            label: 'Gross Revenue by item',
             data: Object.values(this.ObjItemSales),
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)'
