@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
             this.bookedWarehouse = booking;
           }) 
         // Pull the sales from Ecommerce site
-          this.summaryApiService.getSalesList(this.userId)
+        this.summaryApiService.getSalesList(this.userId)
           .then(onlineSales => {
             this.onlineSales = onlineSales;
           })

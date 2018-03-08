@@ -3,13 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
-import { FileUploadModule } from 'ng2-file-upload';
-import { FileSelectDirective } from 'ng2-file-upload';
-||||||| merged common ancestors
-=======
 import { FileUploadModule } from 'ng2-file-upload/file-upload/file-upload.module';
->>>>>>> dev
 
 // Services
 
