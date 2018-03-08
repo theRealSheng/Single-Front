@@ -61,6 +61,6 @@
       <button (click)="edit()">Edit profile</button>
     </div>
 
-    <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
+    <button *ngIf="user._id !== warehouse.ownerID"><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>
 </div>
