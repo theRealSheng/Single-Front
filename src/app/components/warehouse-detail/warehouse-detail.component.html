@@ -1,21 +1,11 @@
 
-<div class="headline" *ngIf="warehouse">
-  <p class="first"><span>W</span>AREHOUSE</p>
-  <p class="third"></p>
-  <p class="fourth"><span>D</span>ETAILS</p>
-</div>
 
 <div class="warehouse-details" *ngIf="warehouse && user">
 
-  <div class="img-wrapper">
-    <img src="">
-  </div>
-
   <div>
-    <h3>{{ warehouse.companyName }}</h3>
     <h5>WAREHOUSE ADDRESS: </h5>    
     <p>{{ warehouse.warehouseAddress }} </p>
-    <h5>PRICING: </h5>
+    <!-- <h5>PRICING: </h5>
     <p> Storage Cost:</p>
     <p> {{ warehouse.pricing[0].storage }} Euros/Month</p>
     <div class="description">
@@ -29,17 +19,48 @@
       <p>Small letter: {{ warehouse.pricing[0].packaging[0] }}</p>
       <p>Medim box: {{ warehouse.pricing[0].packaging[1] }}</p>
       <p>Large Box: {{ warehouse.pricing[0].packaging[2] }}</p>
+    </div> -->
+
+    <h5>prices</h5>
+    <div class="wh-cost">
+      <div class="storage">
+        <h4>Storage</h4>
+        <div class="cbm">
+          <p>CBM</p>
+          <p><span class="number">1.300</span> €</p>
+        </div>
+      </div>
+      <div class="cost-table">
+        <div class="sizes">
+          <h4>Sizes</h4>
+          <p>Small</p>
+          <p>Medium</p>
+          <p>Large</p>
+        </div>
+        <div class="handling">
+          <h4>Handling</h4>
+          <p><span class="number">300</span> €</p>
+          <p><span class="number">400</span> €</p>
+          <p><span class="number">500</span> €</p>
+        </div>
+        <div class="packaging">
+          <h4>Packaging</h4>
+          <p><span class="number">300</span> €</p>
+          <p><span class="number">400</span> €</p>
+          <p><span class="number">500</span> €</p>
+        </div>
+      </div>
     </div>
-
-
 
     <h5>DESCRIPTION: </h5>
     <p>{{ warehouse.description }} </p>
     <h5>SPECIAL NOTES: </h5>
     <p>{{ warehouse.specialNotes }} </p>
+
     <div *ngIf="user._id === warehouse.ownerID">
       <button (click)="edit()">Edit profile</button>
     </div>
+
     <button><a [routerLink]="['/warehouses', warehouse._id, 'booking' ]">Go to booking</a></button>
   </div>
 </div>
