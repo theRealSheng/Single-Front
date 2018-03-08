@@ -77,7 +77,6 @@ export class GraphChartComponent implements OnInit {
       }
     })
 
-        console.log(this.nameofProducts);
 
     // -------- Total cost per Item
     let handlingCost = this.bookedWarehouse[0].warehouseAddress.pricing[0].handling;

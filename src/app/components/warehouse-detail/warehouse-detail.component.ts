@@ -14,6 +14,4 @@ export class WarehouseDetailComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  console.log(this.warehouse);
 }
