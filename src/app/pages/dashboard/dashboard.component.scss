@@ -1,3 +1,16 @@
+@import '../../../styles.scss';
+
+.headline {
+  @extend %headline;
+}
+
+.sales {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+
+
 ul {
   margin-top: 100px; 
   list-style: none;
