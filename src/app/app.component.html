@@ -6,7 +6,7 @@
       <img src="../assets/img/menu.svg" alt="menu-icon">
     </div>
 
-    <span class="logo">S<span class="slash">|</span>L</span>
+    <a [routerLink]="['/']" class="logo">S<span class="slash">|</span>L</a>
 
     <div #tabElement class="tabs" *ngIf="!loading && !!user">
       <input type='radio' id='r1' name='t' checked>
