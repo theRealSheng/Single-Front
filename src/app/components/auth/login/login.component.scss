@@ -2,10 +2,10 @@
 
 .tab {
   @include tablet {
-    margin: 0 10%;
+    margin: 0 20%;
   }
   @include desktop {
-    margin: 0 10%;
+    margin: 0 30%;
   }
 	overflow: hidden;
 }
