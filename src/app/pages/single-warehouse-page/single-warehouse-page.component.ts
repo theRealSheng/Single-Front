@@ -30,7 +30,9 @@ export class SingleWarehousePageComponent implements OnInit {
     .subscribe( params => this.warehouseId = params['id']);
   
     this.warehouseCardService.getSingleWarehouse(this.warehouseId)
-      .then(warehouse => this.warehouseArr = warehouse)
+      .then(warehouse =>{
+        this.warehouseArr = warehouse;
+      })
 
     this.authService.me()
     .then(user => this.user = user)
@@ -39,7 +41,6 @@ export class SingleWarehousePageComponent implements OnInit {
   handleSuccess(newImage) {
     this.warehouseArr.picture = newImage;
   }
-
 
 
 }
