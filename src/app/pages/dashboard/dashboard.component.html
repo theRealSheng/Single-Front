@@ -8,11 +8,14 @@
 <div class="dashboard">
 
   <div class="sales">
-    <h3>Total Revenue</h3>
-    <p class="total">
-    <span *ngIf="totalSalesRevenue">{{ totalSalesRevenue.toFixed(2) }}</span> €</p>
-    <h3>Total cost</h3>
-    <p class="total"><span *ngIf="totalCost">{{ totalCost.toFixed(2) }}</span> €</p>
+    <div>
+      <h3>Total Revenue</h3>
+      <p class="total revenue"><span *ngIf="totalSalesRevenue">{{ totalSalesRevenue.toFixed(2) }}</span> €</p>
+    </div>
+    <div>
+      <h3>Total cost</h3>
+      <p class="total"><span *ngIf="totalCost">{{ totalCost.toFixed(2) }}</span> €</p>
+    </div>
   </div>
 
   <div class="current-cost">

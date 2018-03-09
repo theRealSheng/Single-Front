@@ -6,16 +6,24 @@
 
 .dashboard {
   display: grid;
-  grid-template-columns: 30% 32% 32%;
+  grid-template-columns: 100%;
+  @include tablet {
+    grid-template-columns: 50% 50%;
+  }
+  @include desktop {
+    grid-template-columns: 30% 32% 32%;
+  } 
   grid-column-gap: 3%;
   padding: 2%;
 }
 
 .total {
-  color: $red;
-  text-align: center;
-  margin-top: 30%;
   font-size: 30px;
+  color: $red;
+}
+
+.revenue {
+  color: $green;
 }
 
 .number {
@@ -24,17 +32,20 @@
 }
 
 .sales {
+  @include tablet {
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-column-gap: 5%;
+    padding: 2%;
+    margin-bottom: 3%;
+  }
   background-color: white;
   padding: 5%;
   box-shadow: $box-shadow;
   h3 {
     margin: 5px 0;
-  }
-  p {
-    margin: 2px;
-  }
-  h5 {
-    margin-top: 5px;
   }
 }
 
@@ -48,11 +59,11 @@
   h3 {
     margin: 5px 0;
   }
-  p {
-    margin: 2px;
-  }
   h5 {
     margin-top: 5px;
+  }
+  p {
+    margin: 2px;
   }
 }
 
@@ -65,6 +76,12 @@
 .cost-table {
   display: grid;
   grid-template-columns: 25% 30% 30%;
+  @include tablet {
+    grid-template-columns: 25% 34% 34%;
+  }
+  @include desktop {
+    grid-template-columns: 25% 30% 30%;
+  } 
   grid-column-gap: 2%;
 }
 
@@ -78,11 +95,11 @@
   h3 {
     margin: 5px 0;
   }
-  p {
-    margin: 2px;
-  }
   h5 {
     margin-top: 15px;
+  }
+  p {
+    margin: 2px;
   }
 }
 
