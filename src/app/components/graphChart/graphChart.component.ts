@@ -66,8 +66,8 @@ export class GraphChartComponent implements OnInit {
           datasets: [{
             label: 'Gross Revenue by item',
             data: Object.values(this.ObjItemSales),
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255,99,132,1)'
+            backgroundColor: '#009675b3',
+            borderColor: '#009675'
           }],
         },
       borderWidth: 1,
